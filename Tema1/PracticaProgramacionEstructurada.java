@@ -6,7 +6,10 @@ public class PracticaProgramacionEstructurada {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int aleatorio = random.nextInt(2, 10);
+        Random random1 = new Random();
+        int aleatorio = random1.nextInt(2, 7);
+        int aleatorioDaño = random1.nextInt(-9, -6);
+        int aleatorioDaño1 = random1.nextInt(-9, 6);
         int aleatorioHabilidad = random.nextInt(1, 2);
         int aleatorioVelocidad1 = random.nextInt(1, 100);
         int aleatorioAtaque1 = random.nextInt(1, 100);
@@ -16,6 +19,15 @@ public class PracticaProgramacionEstructurada {
         int aleatorioDefensa2 = random.nextInt(1, 100);
         System.out.println("Elige el tipo de personaje=    1: Personalizado    2: Predefinidos ");
         int tipo = scanner.nextInt();
+        if (tipo < 1) {
+            System.out.println("Porfavor dime uno de estos dos valores para el personaje 1: Personalizado    2: Predefinidos");
+            tipo = scanner.nextInt();
+        } else {
+            if (tipo > 2) {
+                System.out.println("Porfavor dime uno de estos dos valores para el personaje 1: Personalizado    2: Predefinidos");
+                tipo = scanner.nextInt();
+            }
+        }
         int velocidad1 = 0;
         int ataque1 = 0;
         int defensa1 = 0;
@@ -28,6 +40,7 @@ public class PracticaProgramacionEstructurada {
         int habilidad2 = 0;
         int daño;
         int velocidadaño = 0;
+        int dañofinal = 0;
         switch (tipo) {
             case 1:
                 System.out.println("Dime la velocidad del primer jugador entre 1 - 200");
@@ -100,139 +113,191 @@ public class PracticaProgramacionEstructurada {
                 habilidad2 = aleatorioHabilidad;
         }
         System.out.println("RONDA 1");
-            if (velocidad1 >= velocidad2) {
-                System.out.println("Jugador 1 ataca a jugador 2");
-                switch (habilidad1) {
-                    case 1:
-                        if (velocidad1 > 100) {
-                            velocidadaño = 5;
-                        } else {
-                            if (velocidad1 < 15) {
-                                velocidadaño = 2;
-                            }
-                        }
-                        daño = (((ataque1 * 3) - defensa2) / aleatorio) * velocidadaño;
-                        vida2 = vida2 -daño;
-                        System.out.println("Jugador 1 le quita = " + daño + " de vida al jugador 2");
-                        System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
-                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                    case 2:
-                        velocidad1 = (velocidad1 / 2);
-                        if (velocidad1 > 100) {
-                            velocidadaño = 5;
-                        } else {
-                            if (velocidad1 < 15) {
-                                velocidadaño = 2;
-                            }
-                        }
-                        daño = ((ataque1 - defensa2 / 2) / aleatorio) * velocidadaño;
-                        vida2 = vida2 -daño;
-                        System.out.println("Jugador 1 le quita = " + daño + " de vida al jugador 2");
-                        System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                }
-            } else {
-                if (velocidad2 > velocidad1) {
-                    System.out.println("Jugador 2 ataca a jugador 1");
-                    switch (habilidad2) {
-                        case 1:
-                            if (velocidad2 > 100) {
-                                velocidadaño = 5;
-                            } else {
-                                if (velocidad2 < 15) {
-                                    velocidadaño = 2;
-                                }
-                            }
-                            daño = (((ataque2 * 3) - defensa1) / aleatorio) * velocidadaño;
-                            vida1 = vida1 -daño;
-                            System.out.println("Jugador 2 le quita = " + daño + " de vida al jugador 1");
-                            System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                            System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
-                        case 2:
-                            velocidad2 = (velocidad2 / 2);
-                            if (velocidad2 > 100) {
-                                velocidadaño = 5;
-                            } else {
-                                if (velocidad2 < 15) {
-                                    velocidadaño = 2;
-                                }
-                            }
-                            daño = ((ataque2 - defensa1 / 2) / aleatorio) * velocidadaño;
-                            vida1 = vida1 -daño;
-                            System.out.println("Jugador 2 le quita = " + daño + " de vida al jugador 1");
-                            System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                            System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                    }
-
-                }
-                if (vida1 <= vida2) {
-                    System.out.println("Jugador 1 ataca a jugador 2");
-                        switch (habilidad1) {
-                            case 1:
-                                if (velocidad1 > 100) {
-                                    velocidadaño = 5;
-                                } else {
-                                    if (velocidad1 < 15) {
-                                        velocidadaño = 2;
-                                    }
-                                }
-                                daño = (((ataque1 * 3) - defensa2) / aleatorio) * velocidadaño;
-                                vida2 = vida2 -daño;
-                                System.out.println("Jugador 1 le quita = " + daño + " de vida al jugador 2");
-                                System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
-                                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                            case 2:
-                                velocidad1 = (velocidad1 / 2);
-                                if (velocidad1 > 100) {
-                                    velocidadaño = 5;
-                                } else {
-                                    if (velocidad1 < 15) {
-                                        velocidadaño = 2;
-                                    }
-                                }
-                                daño = ((ataque1 - defensa2 / 2) / aleatorio) * velocidadaño;
-                                vida2 = vida2 -daño;
-                                System.out.println("Jugador 1 le quita = " + daño + " de vida al jugador 2");
-                                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                        }
+        if (velocidad1 >= velocidad2) {
+            System.out.println("Jugador 1 ataca a jugador 2");
+            if (habilidad1 == 1) {
+                if (velocidad1 > 15) {
+                    velocidadaño = 5;
                 } else {
-                    if (vida2 < vida1) {
-                        System.out.println("Jugador 2 ataca a jugador 1");
-                        switch (habilidad2) {
-                            case 1:
-                                if (velocidad2 > 100) {
-                                    velocidadaño = 5;
-                                } else {
-                                    if (velocidad2 < 15) {
-                                        velocidadaño = 2;
-                                    }
-                                }
-                                daño = (((ataque2 * 3) - defensa1) / aleatorio) * velocidadaño;
-                                vida1 = vida1 -daño;
-                                System.out.println("Jugador 2 le quita = " + daño + " de vida al jugador 1");
-                                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                                System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
-                            case 2:
-                                velocidad2 = (velocidad2 / 2);
-                                if (velocidad2 > 100) {
-                                    velocidadaño = 5;
-                                } else {
-                                    if (velocidad2 < 15) {
-                                        velocidadaño = 2;
-                                    }
-                                }
-                                daño = ((ataque2 - defensa1 / 2) / aleatorio) * velocidadaño;
-                                vida1 = vida1 -daño;
-                                System.out.println("Jugador 2 le quita = " + daño + " de vida al jugador 1");
-                                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
-                        }
-
+                    if (velocidad1 < 15) {
+                        velocidadaño = 2;
                     }
+                }
+                daño = (((ataque1 * 3) - defensa2) / aleatorio) * velocidadaño;
+                if (daño >= 200) {
+                    dañofinal = daño / 6;
+                } else {
+                    if (daño <= 0) {
+                        dañofinal = daño * (-aleatorioDaño);
+                    }
+                }
+                vida2 = vida2 - dañofinal;
+                System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
+                System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
+                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+
+            } else {
+                velocidad1 = (velocidad1 / 2);
+
+                if (velocidad1 > 15) {
+                    velocidadaño = 5;
+                } else {
+                    if (velocidad1 < 15) {
+                        velocidadaño = 2;
+                    }
+                }
+                daño = ((ataque1 - defensa2) / aleatorio) * velocidadaño;
+                if (daño >= 200) {
+                    dañofinal = daño / 6;
+                } else {
+                    if (daño <= 0) {
+                        dañofinal = daño * (-aleatorioDaño);
+                    }
+                }
+                vida2 = vida2 - dañofinal;
+                System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
+                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+            }
+        } else {
+            if (velocidad2 > velocidad1) {
+                System.out.println("Jugador 2 ataca a jugador 1");
+                if (habilidad2 == 1) {
+                    if (velocidad2 > 15) {
+                        velocidadaño = 5;
+                    } else {
+                        if (velocidad2 < 15) {
+                            velocidadaño = 2;
+                        }
+                    }
+                    daño = (((ataque2 * 3) - defensa1) / aleatorio) * velocidadaño;
+                    if (daño >= 200) {
+                        dañofinal = daño / 6;
+                    } else {
+                        if (daño <= 0) {
+                            dañofinal = daño * (-aleatorioDaño);
+                        }
+                    }
+                    vida1 = vida1 - dañofinal;
+                    System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                    System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
+                } else {
+                    velocidad2 = (velocidad2 / 2);
+                    if (velocidad2 > 15) {
+                        velocidadaño = 5;
+                    } else {
+                        if (velocidad2 < 15) {
+                            velocidadaño = 2;
+                        }
+                    }
+                    daño = ((ataque2 - defensa1) / aleatorio) * velocidadaño;
+                    if (daño >= 200) {
+                        dañofinal = daño / 6;
+                    } else {
+                        if (daño <= 0) {
+                            dañofinal = daño * (-aleatorioDaño);
+                        }
+                    }
+                    vida1 = vida1 - dañofinal;
+                    System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                }
+
+            }
+        }
+        if (vida1 <= vida2) {
+            System.out.println("Jugador 1 ataca a jugador 2");
+            if (habilidad1 == 1) {
+                if (velocidad1 > 15) {
+                    velocidadaño = 5;
+                } else {
+                    if (velocidad1 < 15) {
+                        velocidadaño = 2;
+                    }
+                }
+                daño = (((ataque1 * 3) - defensa2) / aleatorio) * velocidadaño;
+                if (daño >= 200) {
+                    dañofinal = daño / 6;
+                } else {
+                    if (daño <= 0) {
+                        dañofinal = daño * (-aleatorioDaño1);
+                    }
+                }
+                vida2 = vida2 - dañofinal;
+                System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
+                System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
+                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+            } else {
+                velocidad1 = (velocidad1 / 2);
+                if (velocidad1 > 1) {
+                    velocidadaño = 5;
+                } else {
+                    if (velocidad1 < 15) {
+                        velocidadaño = 2;
+                    }
+                }
+                daño = ((ataque1 - defensa2) / aleatorio) * velocidadaño;
+                if (daño >= 200) {
+                    dañofinal = daño / 6;
+                } else {
+                    if (daño <= 0) {
+                        dañofinal = daño * (-aleatorioDaño1);
+                    }
+                }
+                vida2 = vida2 - dañofinal;
+                System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
+                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+            }
+        } else {
+            if (vida2 < vida1) {
+                System.out.println("Jugador 2 ataca a jugador 1");
+                if (habilidad2 == 1) {
+                    if (velocidad2 > 15) {
+                        velocidadaño = 5;
+                    } else {
+                        if (velocidad2 < 15) {
+                            velocidadaño = 2;
+                        }
+                    }
+                    daño = (((ataque2 * 3) - defensa1) / aleatorio) * velocidadaño;
+                    if (daño >= 200) {
+                        dañofinal = daño / 6;
+                    } else {
+                        if (daño <= 0) {
+                            dañofinal = daño * (-aleatorioDaño1);
+                        }
+                    }
+                    vida1 = vida1 - dañofinal;
+                    System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                    System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
+
+                } else {
+                    velocidad2 = (velocidad2 / 2);
+                    if (velocidad2 > 15) {
+                        velocidadaño = 5;
+                    } else {
+                        if (velocidad2 < 15) {
+                            velocidadaño = 2;
+                        }
+                    }
+                    daño = ((ataque2 - defensa1) / aleatorio) * velocidadaño;
+                    if (daño >= 200) {
+                        dañofinal = daño / 6;
+                    } else {
+                        if (daño <= 0) {
+                            dañofinal = daño * (-aleatorioDaño1);
+                        }
+                    }
+                    vida1 = vida1 - dañofinal;
+                    System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
+                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
                 }
             }
-            System.out.println("El jugador 1 a atacado pero la defensa del jugador 2 era mayor o igual, al jugador 2 no se le ha quitado nada de vida.");
-
+        }
     }
 }
