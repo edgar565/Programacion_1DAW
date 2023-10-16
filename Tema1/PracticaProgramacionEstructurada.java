@@ -349,6 +349,7 @@ public class PracticaProgramacionEstructurada {
                     System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
                     System.out.println("");
                 }
+
             }
             contadorRondas++;
             System.out.println("Toca cualquier caracter para continuar");
@@ -524,11 +525,11 @@ public class PracticaProgramacionEstructurada {
                             System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
                             System.out.println("");
                         }
-                        System.out.println("Toca cualquier caracter para continuar");
-                        continuar = scanner.next();
-                        contadorRondas++;
                     }
                 }
+                System.out.println("Toca cualquier caracter para continuar");
+                continuar = scanner.next();
+                contadorRondas++;
             }
             if (vida2 <= 0) {
                 System.out.println("¡¡ EL JUGADOR 1 HA GANADO !!");
