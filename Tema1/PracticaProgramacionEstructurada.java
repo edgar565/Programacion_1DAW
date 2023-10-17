@@ -17,6 +17,14 @@ public class PracticaProgramacionEstructurada {
         int aleatorioVelocidad2 = random.nextInt(1, 100);
         int aleatorioAtaque2 = random.nextInt(1, 100);
         int aleatorioDefensa2 = random.nextInt(1, 100);
+        System.out.println("\n" +
+                " ______ __  __ _____ _____ ______ ______           ______ _             _ _    _ ______ _____  ____  \n" +
+                "|  ____|  \\/  |  __ \\_   _|  ____|___  /   /\\     |  ____| |           | | |  | |  ____/ ____|/ __ \\ \n" +
+                "| |__  | \\  / | |__) || | | |__     / /   /  \\    | |__  | |           | | |  | | |__ | |  __| |  | |\n" +
+                "|  __| | |\\/| |  ___/ | | |  __|   / /   / /\\ \\   |  __| | |       _   | | |  | |  __|| | |_ | |  | |\n" +
+                "| |____| |  | | |    _| |_| |____ / /__ / ____ \\  | |____| |____  | |__| | |__| | |___| |__| | |__| |\n" +
+                "|______|_|  |_|_|   |_____|______/_____/_/    \\_\\ |______|______|  \\____/ \\____/|______\\_____|\\____/ ");
+        System.out.println("");
         System.out.println("Elige el tipo de personaje=    1: Personalizado    2: Predefinidos ");
         int tipo = scanner.nextInt();
         if (tipo < 1) {
@@ -216,8 +224,8 @@ public class PracticaProgramacionEstructurada {
                         vida2 = vida2 - (dañofinal);
                         System.out.println("La habilidad es FURIA");
                         System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
-                        System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
-                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                        System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + Math.max(0,vida1));
+                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                         System.out.println("");
                     }
                 } else {
@@ -259,8 +267,8 @@ public class PracticaProgramacionEstructurada {
                     vida2 = vida2 - (dañofinal);
                     System.out.println("La habilidad es AFILAR");
                     System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
-                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                     System.out.println("");
                 }
             } else {
@@ -304,8 +312,8 @@ public class PracticaProgramacionEstructurada {
                     vida1 = vida1 - (dañofinal);
                     System.out.println("La habilidad es FURIA");
                     System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
-                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                    System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                    System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + Math.max(0,vida2));
                     System.out.println("");
                 } else {
                     velocidad2 = (velocidad2 / 2);
@@ -345,8 +353,8 @@ public class PracticaProgramacionEstructurada {
                     vida1 = vida1 - (dañofinal);
                     System.out.println("La habilidad es AFILAR");
                     System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
-                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                    System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                    System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                     System.out.println("");
                 }
 
@@ -395,8 +403,8 @@ public class PracticaProgramacionEstructurada {
                         vida2 = vida2 - (dañofinal);
                         System.out.println("La habilidad es FURIA");
                         System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
-                        System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + vida1);
-                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                        System.out.println("Jugador 1 = defensa: " + (defensa1 / 2) + " vida: " + Math.max(0,vida1));
+                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                         System.out.println("");
                     } else {
                         velocidad1 = (velocidad1 / 2);
@@ -436,8 +444,8 @@ public class PracticaProgramacionEstructurada {
                         vida2 = vida2 - (dañofinal);
                         System.out.println("La habilidad es AFILAR");
                         System.out.println("Jugador 1 le quita = " + dañofinal + " de vida al jugador 2");
-                        System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                        System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                        System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                         System.out.println("");
                     }
                 } else {
@@ -479,8 +487,8 @@ public class PracticaProgramacionEstructurada {
                                 vida1 = vida1 - (dañofinal);
                                 System.out.println("La habilidad es FURIA");
                                 System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
-                                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                                System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + vida2);
+                                System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                                System.out.println("Jugador 2 = defensa: " + (defensa2 / 2) + " vida: " + Math.max(0,vida2));
                                 System.out.println("");
                             }
                         } else {
@@ -521,8 +529,8 @@ public class PracticaProgramacionEstructurada {
                             vida1 = vida1 - (dañofinal);
                             System.out.println("La habilidad es AFILAR");
                             System.out.println("Jugador 2 le quita = " + dañofinal + " de vida al jugador 1");
-                            System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + vida1);
-                            System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + vida2);
+                            System.out.println("Jugador 1 = defensa: " + defensa1 + " vida: " + Math.max(0,vida1));
+                            System.out.println("Jugador 2 = defensa: " + defensa2 + " vida: " + Math.max(0,vida2));
                             System.out.println("");
                         }
                     }
@@ -532,8 +540,14 @@ public class PracticaProgramacionEstructurada {
                 contadorRondas++;
             }
             if (vida2 <= 0) {
-                System.out.println("¡¡ EL JUGADOR 1 HA GANADO !!");
-                System.out.println("EL JUGADOR 2 HA PERDIDO");
+                System.out.println("\n" +
+                        " ______ _            _ _    _  _____          _____   ____  _____   __      _    _            _____          _   _          _____   ____  _ _ \n" +
+                        "|  ____| |          | | |  | |/ ____|   /\\   |  __ \\ / __ \\|  __ \\ /_ |    | |  | |   /\\     / ____|   /\\   | \\ | |   /\\   |  __ \\ / __ \\| | |\n" +
+                        "| |__  | |          | | |  | | |  __   /  \\  | |  | | |  | | |__) | | |    | |__| |  /  \\   | |  __   /  \\  |  \\| |  /  \\  | |  | | |  | | | |\n" +
+                        "|  __| | |      _   | | |  | | | |_ | / /\\ \\ | |  | | |  | |  _  /  | |    |  __  | / /\\ \\  | | |_ | / /\\ \\ | . ` | / /\\ \\ | |  | | |  | | | |\n" +
+                        "| |____| |____ | |__| | |__| | |__| |/ ____ \\| |__| | |__| | | \\ \\  | |    | |  | |/ ____ \\ | |__| |/ ____ \\| |\\  |/ ____ \\| |__| | |__| |_|_|\n" +
+                        "|______|______| \\____/ \\____/ \\_____/_/    \\_\\_____/ \\____/|_|  \\_\\ |_|    |_|  |_/_/    \\_\\ \\_____/_/    \\_\\_| \\_/_/    \\_\\_____/ \\____/(_|_)");
+                System.out.println("");
                 System.out.println("\n" +
                         "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
                         "███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n" +
@@ -561,8 +575,14 @@ public class PracticaProgramacionEstructurada {
                         "┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼\n" +
                         "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n");
             } else if (vida1 <= 0) {
-                System.out.println("¡¡ EL JUGADOR 2 HA GANADO !!");
-                System.out.println("EL JUGADOR 1 HA PERDIDO");
+                System.out.println("\n" +
+                        " ______ _            _ _    _  _____          _____   ____  _____    ___    _    _            _____          _   _          _____   ____  _ _ \n" +
+                        "|  ____| |          | | |  | |/ ____|   /\\   |  __ \\ / __ \\|  __ \\  |__ \\  | |  | |   /\\     / ____|   /\\   | \\ | |   /\\   |  __ \\ / __ \\| | |\n" +
+                        "| |__  | |          | | |  | | |  __   /  \\  | |  | | |  | | |__) |    ) | | |__| |  /  \\   | |  __   /  \\  |  \\| |  /  \\  | |  | | |  | | | |\n" +
+                        "|  __| | |      _   | | |  | | | |_ | / /\\ \\ | |  | | |  | |  _  /    / /  |  __  | / /\\ \\  | | |_ | / /\\ \\ | . ` | / /\\ \\ | |  | | |  | | | |\n" +
+                        "| |____| |____ | |__| | |__| | |__| |/ ____ \\| |__| | |__| | | \\ \\   / /_  | |  | |/ ____ \\ | |__| |/ ____ \\| |\\  |/ ____ \\| |__| | |__| |_|_|\n" +
+                        "|______|______| \\____/ \\____/ \\_____/_/    \\_\\_____/ \\____/|_|  \\_\\ |____| |_|  |_/_/    \\_\\ \\_____/_/    \\_\\_| \\_/_/    \\_\\_____/ \\____/(_|_)");
+                System.out.println("");
                 System.out.println("\n" +
                         "┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼\n" +
                         "███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀\n" +
