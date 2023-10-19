@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Tema2Ejercicio4 {
 
     public static double euro2dollar(double euro) {
+
         return euro * 1.06;
     }
 
     public static double dollar2euro(double dollar) {
+
         return dollar / 1.06;
     }
 

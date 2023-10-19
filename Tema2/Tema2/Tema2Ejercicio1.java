@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio1 {
     public static int numberSign (int number) {
+        int result;
         if (number < 0) {
-            return -1;
+            result = -1;
         } else if (number == 0) {
-            return 0;
-        } else
-            return 1;
+            result = 0;
+        } else{
+            result = 1;
+        }
+        return result;
     }
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
