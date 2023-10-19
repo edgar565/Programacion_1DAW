@@ -15,11 +15,19 @@ public class Tema2Ejercicio7 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Dime un número entre el 1 y el 10");
+        System.out.println("Dime un número");
         int num = scanner.nextInt();
         while (num != 0) {
-            System.out.println("Dime un número entre el 1 y el 10");
-            num = scanner.nextInt();
+            if (primoNo(num) == true){
+                System.out.println("Es primo");
+                System.out.println("Dime un número");
+                num = scanner.nextInt();
+            } else {
+                System.out.println("No es primo");
+                System.out.println("Dime un número");
+                num = scanner.nextInt();
+            }
+
         }
     }
 }
