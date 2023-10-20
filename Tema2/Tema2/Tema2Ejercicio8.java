@@ -61,8 +61,6 @@ public class Tema2Ejercicio8 {
         int month = scanner.nextInt();
         System.out.println("Dime un año ");
         int year = scanner.nextInt();
-        System.out.println(validDay(day,month,year));
-        System.out.println(validMonth(month));
         if ((validDay(day,year,month) == true) && (validMonth(month) == true)) {
             System.out.println("La fecha es correcta");
         } else {

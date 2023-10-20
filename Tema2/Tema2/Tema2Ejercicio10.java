@@ -60,9 +60,23 @@ public class Tema2Ejercicio10 {
                     System.out.println("No es primo");
                 }
             case 8:
-                System.out.println("");
-
+                System.out.println("Dime un dia del mes entre el 1 y el 31");
+                int day = scanner.nextInt();
+                System.out.println("Dime un mes entre el 1 y el 12");
+                int month = scanner.nextInt();
+                System.out.println("Dime un año ");
+                int year = scanner.nextInt();
+                if ((Tema2Ejercicio8.validDay(day,year,month) == true) && (Tema2Ejercicio8.validMonth(month) == true)) {
+                    System.out.println("La fecha es correcta");
+                } else {
+                    System.out.println("La fecha no es correcta");
+                }
+            case 9:
+                System.out.println("Dime el carácter");
+                char character = scanner.next().charAt(0);
+                System.out.println("Dime el número de líneas del triángulo");
+                int numberLines = scanner.nextInt();
+                Tema2Ejercicio9.printTriangle(character,numberLines);
         }
-
     }
 }
