@@ -19,18 +19,18 @@ public class Tema2Ejercicio3 {
     }
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Dime un radio");
+        System.out.println("Dime un radio de un circulo");
         int radius = scanner.nextInt();
         if (validRadius(radius) == true){
-            System.out.println(calculateCirclePerimeter(radius));
-            System.out.println(calculateCircleArea(radius));
-        } else
+            System.out.println("El perimetro del circulo es " + calculateCirclePerimeter(radius));
+            System.out.println("El area del circulo es " + calculateCircleArea(radius));
+        } else {
             while (validRadius(radius) != true) {
                 System.out.println("Dime un radio correcto");
                 radius = scanner.nextInt();
-                System.out.println(calculateCirclePerimeter(radius));
-                System.out.println(calculateCircleArea(radius));
+                System.out.println("El perimetro del circulo es " + calculateCirclePerimeter(radius));
+                System.out.println("El area del circulo es " + calculateCircleArea(radius));
             }
-
+        }
     }
 }

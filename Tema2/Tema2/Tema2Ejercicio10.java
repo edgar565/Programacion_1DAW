@@ -49,8 +49,7 @@ public class Tema2Ejercicio10 {
                 int num = scanner.nextInt();
                 Tema2Ejercicio5.tablaMutiplicar(num);
             case 6:
-                num = 1;
-                Tema2Ejercicio6.tablasMultiplicar(num);
+                Tema2Ejercicio6.tablasMultiplicar();
             case 7:
                 System.out.println("Dime un número para saber si es primo o no");
                 num = scanner.nextInt();
