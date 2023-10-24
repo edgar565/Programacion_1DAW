@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio2 {
     public static boolean isAdult( int age){
-        if (age < 18) {
-            return false;
-        } else
-            return true;
+        boolean adult = false;
+        if (age > 18) {
+            adult = true;
+        }
+            return adult;
     }
 
     public static void main(String[] args){

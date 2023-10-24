@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class Tema2Ejercicio3 {
 
     public static boolean validRadius(int radius) {
-        if (radius > 0) {
-            return true;
-        } else
-            return false;
+        boolean isValid = false;
+        if (radius > 0) isValid = true;
+        return isValid;
     }
     public static double calculateCirclePerimeter(int radius){
         double perimeter = (2 * (Math.PI)) * radius;
@@ -29,8 +28,9 @@ public class Tema2Ejercicio3 {
             while (validRadius(radius) != true) {
                 System.out.println("Dime un radio correcto");
                 radius = scanner.nextInt();
+                System.out.println(calculateCirclePerimeter(radius));
+                System.out.println(calculateCircleArea(radius));
             }
-        System.out.println(calculateCirclePerimeter(radius));
-        System.out.println(calculateCircleArea(radius));
+
     }
 }

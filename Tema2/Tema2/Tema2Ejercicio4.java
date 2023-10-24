@@ -20,7 +20,19 @@ public class Tema2Ejercicio4 {
         String showMenu = scanner.next();
         if (showMenu.equals("euros")) {
             System.out.println("Dime los euros que quieres pasar a dolares");
+                  Scanner scanner = new Scanner(System.in);
+        System.out.println("Dime que quieres pasar euros o dolares");
+        String showMenu = scanner.next();
+        if (showMenu.equals("euros")) {
+            System.out.println("Dime los euros que quieres pasar a dolares");
             double euro = scanner.nextInt();
+            System.out.println(euro + " euros son " + euro2dollar(euro) + " dolares");
+        } else if (showMenu.equals("dolares")) {
+            System.out.println("Dime los dolares que quieres pasar a euros");
+            double dollar = scanner.nextInt();
+            System.out.println(dollar + " dolares son " + dollar2euro(dollar) + " euros");
+        }
+  double euro = scanner.nextInt();
             System.out.println(euro + " euros son " + euro2dollar(euro) + " dolares");
         } else if (showMenu.equals("dolares")) {
             System.out.println("Dime los dolares que quieres pasar a euros");

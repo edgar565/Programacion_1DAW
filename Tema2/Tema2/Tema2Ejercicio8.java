@@ -6,6 +6,10 @@ public class Tema2Ejercicio8 {
 
     public static boolean validDay(int day, int month, int year) {
         boolean resultDay = false;
+        //if dias y meses
+                // if 30 dies
+                // febrero
+                // 31 dies
         if (day >= 1 && day <= 31) {
             if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)) && (month == 2)) {
                 if (day == 29) {
