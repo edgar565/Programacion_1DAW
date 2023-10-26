@@ -3,77 +3,77 @@ package Tema2;
 public class MyMath {
 
     public static double squarePerimeter(double lado) {
-        double result;
+        double perimetro_square;
         if (lado < 0) {
-            result = 0.0;
+            perimetro_square = 0.0;
         } else {
-            result = lado * 4;
+            perimetro_square = lado * 4;
         }
-        return result;
+        return perimetro_square;
     }
 
     public static double squareArea(double lado) {
-        double result;
+        double area_square;
         if (lado < 0) {
-            result = 0.0;
+            area_square = 0.0;
         } else {
-            result = lado * lado;
+            area_square = lado * lado;
         }
-        return result;
+        return area_square;
     }
 
     public static double rectanglePerimeter(double base, double lado) {
-        double result;
+        double perimetro_rectangulo;
         if (lado <= 0 || base <= 0) {
-            result = 0.0;
+            perimetro_rectangulo = 0.0;
         } else {
-            result = (2 * base) + (2 * lado);
+            perimetro_rectangulo = (2 * base) + (2 * lado);
         }
-        return result;
+        return perimetro_rectangulo;
     }
 
     public static double rectangleArea(double base, double lado) {
-        double result;
+        double area_rectangle;
         if (lado <= 0 || base <= 0) {
-            result = 0.0;
+            area_rectangle = 0.0;
         } else {
-            result = base * lado;
+            area_rectangle = base * lado;
         }
-        return result;
+        return area_rectangle;
     }
 
     public static double circlePerimeter(double radio) {
-        double result;
+        double perimetro_circulo;
         if (radio <= 0) {
-            result = 0.0;
+            perimetro_circulo = 0.0;
         } else {
-            result = 2 * Math.PI * radio;
+            perimetro_circulo = 2 * Math.PI * radio;
         }
-        return result;
+        return perimetro_circulo;
     }
 
     public static double circleArea(double radio) {
-        double result;
+        double area_circulo;
         if (radio <= 0) {
-            result = 0.0;
+            area_circulo = 0.0;
         } else {
-            result = Math.PI * Math.pow(radio, 2);
+            area_circulo = Math.PI * Math.pow(radio, 2);
         }
-        return result;
+        return area_circulo;
     }
 
     public static boolean isPrime(int numero) {
-        boolean result = true;
+        boolean primo = true;
         if (numero < 2) {
-            result = false;
+            primo = false;
         } else {
             for (int i = 2; i < numero; i++) {
                 if (numero % i == 0) {
-                    result = false;
+                    primo = false;
                 }
             }
         }
-        return result;
+        return primo;
     }
 
     public static boolean isNotPrime(int numero) {
@@ -127,10 +127,33 @@ public class MyMath {
         int factorial = 0;
         if (numero >= 0){
             factorial = 1;
-            for (int i = 1; i >= numero;i++){
+            for (int i = 1; i <= numero;i++){
                 factorial *= i;
             }
         }
         return factorial;
+    }
+    public static double quadraticEcuationSolutions(int coeficiente1, int coeficiente2, int coeficiente3){
+        double discriminante = Math.pow(coeficiente2,2) - (4 * coeficiente1 * coeficiente3);
+        double result = 0;
+        if (discriminante >= 0) {
+            double soluciones;
+            if (discriminante == 0){
+                soluciones = 1;
+            }else {
+                soluciones = 2;
+            }
+            result = soluciones;
+        }
+        return result;
+    }
+    public static double figuresSumatory(int numero){
+        numero = Math.abs(numero);
+        int resultado = 0;
+        while (numero > 0){
+            resultado = resultado + (numero % 10);
+            numero = numero / 10;
+        }
+        return resultado;
     }
 }

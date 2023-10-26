@@ -122,7 +122,7 @@ class MyMathTest {
         assertEquals(3628800, MyMath.factorialRecursive(10), "10! = 3628800");
         assertEquals(0, MyMath.factorialRecursive(-1), "-1! = 0, vamos a suponer que el factorial de un número negativo es 0");
     }
-    /*
+
     @Test
     void quadraticEcuationSolutionsTest() {
         assertEquals(2, MyMath.quadraticEcuationSolutions(-2 , 2, 1), "-2 X2 + 2 X + 1 = 0 has 2 solutions");
@@ -137,5 +137,4 @@ class MyMathTest {
         assertEquals(6, MyMath.figuresSumatory(123), "123 -> Todos los dígitos suman 6");
         assertEquals(6, MyMath.figuresSumatory(-123), "-123 -> Todos los dígitos suman 6");
     }
-*/
 }
