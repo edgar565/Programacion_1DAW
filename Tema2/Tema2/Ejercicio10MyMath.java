@@ -5,10 +5,40 @@ import java.util.Scanner;
 public class Ejercicio10MyMath {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Dime un número entre el 1 y el 15");
+        System.out.println("Dime un número entre el 1 y el 15\n" +
+                "\"1: Perimetro de un cuadrado\" +\n" +
+                "\"2: Area de un cuadrado\" +\n" +
+                "\"3: Perimetro de rectangulo\" +\n" +
+                "\"4: Area de rectangulo\" +\n" +
+                "\"5: Perimetro de circulo\" +\n" +
+                "\"6: Area de circulo\" +\n" +
+                "\"7: Numero es primo\" +\n" +
+                "\"8: Numero no es primo\" +\n" +
+                "\"9: Contador de numeros\" +\n" +
+                "\"10: Contador de numeros pares\" +\n" +
+                "\"11: Contador de numeros impares\" +\n" +
+                "\"12: Factorial\" +\n" +
+                "\"13: Factorial recursivo\" +\n" +
+                "\"14: Calcular las soluciones de ecuaciones\" +\n" +
+                "\"15: Sumar digitos de un numero\");");
         int menu = scanner.nextInt();
         while (menu <1 && menu > 15){
-            System.out.println("Dime un número entre el 1 y el 15");
+            System.out.println("Dime un número entre el 1 y el 15\n" +
+                    "\"1: Perimetro de un cuadrado\" +\n" +
+                    "\"2: Area de un cuadrado\" +\n" +
+                    "\"3: Perimetro de rectangulo\" +\n" +
+                    "\"4: Area de rectangulo\" +\n" +
+                    "\"5: Perimetro de circulo\" +\n" +
+                    "\"6: Area de circulo\" +\n" +
+                    "\"7: Numero es primo\" +\n" +
+                    "\"8: Numero no es primo\" +\n" +
+                    "\"9: Contador de numeros\" +\n" +
+                    "\"10: Contador de numeros pares\" +\n" +
+                    "\"11: Contador de numeros impares\" +\n" +
+                    "\"12: Factorial\" +\n" +
+                    "\"13: Factorial recursivo\" +\n" +
+                    "\"14: Calcular las soluciones de ecuaciones\" +\n" +
+                    "\"15: Sumar digitos de un numero\");");
             menu = scanner.nextInt();
         }
         switch (menu){
