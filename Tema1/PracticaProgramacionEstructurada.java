@@ -7,7 +7,7 @@ public class PracticaProgramacionEstructurada {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         Random random1 = new Random();
-        int aleatorio = random1.nextInt(2, 7);
+        int aleatorio;
         int aleatorioDaño = random1.nextInt(-2, -1);
         int aleatorioHabilidad1 = random.nextInt(1, 3);
         int aleatorioHabilidad2 = random.nextInt(1, 3);
@@ -63,7 +63,7 @@ public class PracticaProgramacionEstructurada {
                 defensa1 = scanner.nextInt();
                 System.out.println("Los puntos de vida del primer jugador son 200");
                 vida1 = 200;
-                System.out.println("Escoge una de estas tres habilidades: 1 FURIA, 2 AFILAR.");
+                System.out.println("Escoge una de estas dos habilidades: 1 FURIA, 2 AFILAR.");
                 habilidad1 = scanner.nextInt();
                 while ((velocidad1 + ataque1 + defensa1 + vida1 > 500) || ((velocidad1 > 200) || (velocidad1 < 1)) || ((ataque1 > 200) || (ataque1 < 1)) || ((defensa1 > 200) || (defensa1 < 1)) || ((vida1 > 200) || (vida1 < 1))) {
                     System.out.println("La suma de los valores no puede superar 500 y cada valor no puede superar 200, porfavor vuelva a intertarlo");
@@ -75,7 +75,7 @@ public class PracticaProgramacionEstructurada {
                     defensa1 = scanner.nextInt();
                     System.out.println("Los puntos de vida del primer jugador son 200");
                     vida1 = 200;
-                    System.out.println("Escoge una de estas tres habilidades: 1 FURIA, 2 AFILAR.");
+                    System.out.println("Escoge una de estas dos habilidades: 1 FURIA, 2 AFILAR.");
                     habilidad1 = scanner.nextInt();
                 }
                 System.out.println("Dime la velocidad del segundo jugador entre 1 - 200");
@@ -86,7 +86,7 @@ public class PracticaProgramacionEstructurada {
                 defensa2 = scanner.nextInt();
                 System.out.println("Los puntos de vida del segundo jugador son 200");
                 vida2 = 200;
-                System.out.println("Escoge una de estas tres habilidades: 1 FURIA, 2 DEFENSA.");
+                System.out.println("Escoge una de estas dos habilidades: 1 FURIA, 2 AFILAR.");
                 habilidad2 = scanner.nextInt();
                 while ((velocidad2 + ataque2 + defensa2 + vida2 > 500) || ((velocidad2 > 200) || (velocidad2 < 1)) || ((ataque2 > 200) || (ataque2 < 1)) || ((defensa2 > 200) || (defensa2 < 1)) || ((vida2 > 200) || (vida2 < 1))) {
                     System.out.println("La suma de los valores no puede superar 500 y cada valor no puede superar 200, porfavor vuelva a intertarlo");
@@ -98,7 +98,7 @@ public class PracticaProgramacionEstructurada {
                     defensa2 = scanner.nextInt();
                     System.out.println("Los puntos de vida del segundo jugador son 200");
                     vida2 = 200;
-                    System.out.println("Escoge una de estas tres habilidades: 1 FURIA, 2 DEFENSA.");
+                    System.out.println("Escoge una de estas dos habilidades: 1 FURIA, 2 AFILAR.");
                     habilidad2 = scanner.nextInt();
                 }
             case 2:
