@@ -145,4 +145,23 @@ public class Utils {
         }
         return isValid;
     }
+    public static double calculateIRPF(double salario) {
+        double irpf = 0;
+        if (salario <= 0) {
+            irpf = 0;
+        }else if (salario <= 12449) {
+            irpf = salario * 0.19;
+        } else if (salario >= 12450 && salario < 20199) {
+            irpf = 12449 * 0.19 + ((salario - 12449) * 0.24);
+        } else if (salario >= 20200 && salario < 35199) {
+            irpf = 12449 * 0.19 + ((20199 - 12450) * 0.24) + ((salario - 20200) * 0.30);
+        } else if (salario >= 35200 && salario < 59999) {
+            irpf = 12449 * 0.19 + ((20199 - 12450) * 0.24) + ((35199 - 20200) * 0.30) + ((salario - 35200) * 0.37);
+        } else if (salario >= 60000 && salario < 299999) {
+            irpf = 12449 * 0.19 + ((20199 - 12450) * 0.24) + ((35199 - 20200) * 0.30) + ((59999 - 35200) * 0.37) + ((salario - 60000) * 0.45);
+        } else if (salario >= 300000){
+            irpf = 12449 * 0.19 + ((20199 - 12450) * 0.24) + ((35199 - 20200) * 0.30) + ((59999 - 35200) * 0.37) + ((299999 - 60000) * 0.45) + ((salario - 300000) * 0.47);
+        }
+        return irpf;
+    }
 }

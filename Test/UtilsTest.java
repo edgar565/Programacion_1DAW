@@ -58,4 +58,15 @@ class UtilsTest {
         assertFalse(Utils.isValidNIF(12345678,'A'));
     }
 
+    @Test
+    void calculateIRPFTest() {
+       assertEquals( 0, Utils.calculateIRPF(0),0.001);
+       assertEquals( 0, Utils.calculateIRPF(-1),0.001, "No hay salarios negativos");
+       assertEquals( 2346.5, Utils.calculateIRPF(12350),0.001);
+       assertEquals( 3109.55, Utils.calculateIRPF(15550),0.001);
+       assertEquals( 5774.87, Utils.calculateIRPF(25366),0.001);
+       assertEquals(10842.28, Utils.calculateIRPF(40923),0.001);
+       assertEquals( 29495.10, Utils.calculateIRPF(85766), 0.001);
+       assertEquals( 246010.8, Utils.calculateIRPF(555555),0.001);
+    }
 }
