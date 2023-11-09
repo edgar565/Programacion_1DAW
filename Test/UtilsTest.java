@@ -29,7 +29,7 @@ class UtilsTest {
     @Test
     void netPriceTest() {
         assertEquals( 0, Utils.getNetPrice(0, 21.0), 0.001);
-        assertEquals( 1, Utils.getNetPrice(1, 0), 0.001);
+        assertEquals( 10, Utils.getNetPrice(10, 0), 0.001);
         assertEquals( 12.1, Utils.getNetPrice(10.0, 21.0), 0.001);
         assertEquals( 3.86, Utils.getNetPrice(3.19, 21.0), 0.001);
         assertEquals( -12.1, Utils.getNetPrice(-10.0, 21.0), 0.001);

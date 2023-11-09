@@ -13,13 +13,11 @@ public class Utils {
         return result;
     }
     public static double getNetPrice(double euros, double impuesto){
-        double importe;
+        double importe = euros;
         if (impuesto != 0) {
             importe = (euros * impuesto) / 100;
             importe = Math.round((euros + importe) * 100) / 100.0;
-        } else {
-            importe = 1;
-        }
+        } 
 
         return importe;
     }
