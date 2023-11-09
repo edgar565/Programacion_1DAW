@@ -16,7 +16,7 @@ public class PracticaCombateFunciones {
     static int aleatorioVelocidad1 = random.nextInt(1, 100); static int aleatorioVelocidad2 = random.nextInt(1, 100);
     static int aleatorioAtaque1 = random.nextInt(1, 100); static int aleatorioAtaque2 = random.nextInt(1, 100);
     static int aleatorioDefensa1 = random.nextInt(1, 100); static int aleatorioDefensa2 = random.nextInt(1, 100);
-    static int damage; static int velocidadDamage = 0; static int damageFinal = 0; static int personajes;
+    static int damage; static int velocidadDamage = 0; static int damageFinal = 0; static int personajes; static int damageRandom;
     static String continuar; static String critico; static String regeneracion;
     static int contadorRondas = 1; static int aleatorio; static int criticoMenu; static int regeneracionMenu; static int estadoMenu;
     public static void empieza() {
@@ -265,8 +265,9 @@ public class PracticaCombateFunciones {
                 break;
         }
     }
-    public static int damage() {
-        if (habilidad1 == 1) {
+    public static void damageRamdom(){
+        switch (damageRandom) {
+            case 1:
             if (velocidad1 > 15) {
                 velocidadDamage = 5;
             } else {
@@ -275,40 +276,37 @@ public class PracticaCombateFunciones {
                 }
             }
             aleatorio = random1.nextInt(2, 7);
+            break;
+            case 2:
+                if (velocidad2 > 15) {
+                    velocidadDamage = 5;
+                } else {
+                    if (velocidad2 < 15) {
+                        velocidadDamage = 2;
+                    }
+                }
+                aleatorio = random1.nextInt(2, 7);
+        }
+    }
+    public static int damage() {
+        if (habilidad1 == 1) {
+            damageRandom = 1;
+            damageRamdom();
             damage = (((ataque1 * 3) - defensa2) / aleatorio) * velocidadDamage;
         } else {
             velocidad1 = (velocidad1 / 2);
-
-            if (velocidad1 > 15) {
-                velocidadDamage = 5;
-            } else {
-                if (velocidad1 < 15) {
-                    velocidadDamage = 2;
-                }
-            }
-            aleatorio = random1.nextInt(2, 7);
+            damageRandom = 1;
+            damageRamdom();
             damage = ((ataque1 - defensa2) / aleatorio) * velocidadDamage;
         }
         if (habilidad2 == 1) {
-            if (velocidad2 > 15) {
-                velocidadDamage = 5;
-            } else {
-                if (velocidad2 < 15) {
-                    velocidadDamage = 2;
-                }
-            }
-            aleatorio = random1.nextInt(2, 7);
+            damageRandom = 2;
+            damageRamdom();
             damage = (((ataque2 * 3) - defensa1) / aleatorio) * velocidadDamage;
         } else {
             velocidad2 = (velocidad2 / 2);
-            if (velocidad2 > 15) {
-                velocidadDamage = 5;
-            } else {
-                if (velocidad2 < 15) {
-                    velocidadDamage = 2;
-                }
-            }
-            aleatorio = random1.nextInt(2, 7);
+            damageRandom = 2;
+            damageRamdom();
             damage = ((ataque2 - defensa1) / aleatorio) * velocidadDamage;
         }
         if (damage <= 0) {
@@ -335,27 +333,8 @@ public class PracticaCombateFunciones {
                 vida2 = vida2 - (damageFinal);
                 estadoMenu = 1;
                 estado();
-            } else {
-                damage();
-                criticoMenu = 1;
-                critico(criticoMenu);
-                regeneracionMenu = 1;
-                regeneracion(regeneracionMenu);
-                vida2 = vida2 - (damageFinal);
-                estadoMenu = 1;
-                estado();
-            }
-            if (velocidad2 > velocidad1 || vida1 > vida2) {
+            }else if (velocidad2 > velocidad1 || vida1 > vida2) {
                 System.out.println("Jugador 2 ataca a jugador 1");
-                damage();
-                criticoMenu = 2;
-                critico(criticoMenu);
-                regeneracionMenu = 2;
-                regeneracion(regeneracionMenu);
-                vida1 = vida1 - (damageFinal);
-                estadoMenu = 2;
-                estado();
-            } else {
                 damage();
                 criticoMenu = 2;
                 critico(criticoMenu);
