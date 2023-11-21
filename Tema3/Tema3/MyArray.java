@@ -8,6 +8,7 @@ public class MyArray {
     public static void main(String[] args){
         int [] array2 = new int[] {6,10,4,14,6,1,9,5,7};
         int[] array = new int[9];
+        System.out.println("Dime los 9 valores para el array");
         for (int i = 0; i < 9; i++){
             System.out.println("Dime el valor");
             array[i] = scanner.nextInt();
@@ -34,6 +35,7 @@ public class MyArray {
             System.out.println("Función para saber si un elemento está en el array");
             System.out.println(existeArray(array));
         } else if (menu.equals("f")) {
+            System.out.println(Arrays.toString(sumVecArray(array, array2)));
 
         } else if (menu.equals("g")) {
 
@@ -84,12 +86,13 @@ public class MyArray {
         return (exElement == 1);
     }
     public static int[] sumVecArray(int[] array, int[] array2){
-        int[] sumArray;
+        int[] sumArray = new int[9];
         for (int i = 0; i < array.length; i++) {
-            int suma = array[0] + array2[0];
+            int suma = array[i] + array2[i];
+            sumArray[i] = suma;
         }
-    /*    return = sumArray;
-    }
+        return sumArray;
+    }/*
     public static double resVecArray(int[] array){
 
     }
