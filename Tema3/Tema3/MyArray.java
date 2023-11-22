@@ -5,98 +5,158 @@ import java.util.Scanner;
 
 public class MyArray {
     static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args){
-        int [] array2 = new int[] {6,10,4,14,6,1,9,5,7};
-        int[] array = new int[9];
-        System.out.println("Dime los 9 valores para el array");
-        for (int i = 0; i < 9; i++){
-            System.out.println("Dime el valor");
-            array[i] = scanner.nextInt();
-        }
+
+    public static void main(String[] args, int[] array1) {
+        int[] array2 = new int[]{6, 10, 4, 14, 6, 1, 9, 5, 7};
         System.out.println("Elige entre una de las siguientes opciones: \n" +
-                "a. Función para imprimir el array\n" +
+                "a. Procedimiento para imprimir el array\n" +
                 "b. Función que devuelve el máximo del array\n" +
                 "c. Función que devuelve el mínimo del array\n" +
                 "d. Función que devuelve la media\n" +
-                "e. Función para saber si un elemento está en el array\n");
+                "e. Función para saber si un elemento está en el array\n" +
+                "f. Función para sumar los arrays\n" +
+                "g. Función para restar los arrays\n" +
+                "h. Función para realizar el producto escalar de los arrays\n" +
+                "i. Función para invertir el orden del array1\n" +
+                "j. Procedimiento para invertir el orden del array1\n" +
+                "k. Función para saber si el array1 es capicua\n" +
+                "");
+
         String menu = scanner.next();
-        if (menu.equals("a")){
-            printArrray(array);
+        if (menu.equals("a")) {
+            printArrray(array1);
         } else if (menu.equals("b")) {
             System.out.println("Función que devuelve el máximo del array");
-            System.out.println(maxArray(array));
+            System.out.println(maxArray(array1));
         } else if (menu.equals("c")) {
             System.out.println("Función que devuelve el mínimo del array");
-            System.out.println(minArray(array));
-        } else if (menu.equals("d")){
+            System.out.println(minArray(array1));
+        } else if (menu.equals("d")) {
             System.out.println("Función que devuelve la media");
-            System.out.println(medArray(array));
+            System.out.println(medArray(array1));
         } else if (menu.equals("e")) {
             System.out.println("Función para saber si un elemento está en el array");
-            System.out.println(existeArray(array));
+            System.out.println(existeArray(array1));
         } else if (menu.equals("f")) {
-            System.out.println(Arrays.toString(sumVecArray(array, array2)));
-
+            System.out.println("Función para sumar los arrays");
+            System.out.println(Arrays.toString(sumVecArray(array1, array2)));
         } else if (menu.equals("g")) {
-
+            System.out.println("Función para restar los arrays");
+            System.out.println(Arrays.toString(restVecArray(array1, array2)));
         } else if (menu.equals("h")) {
-
+            System.out.println("Función para realizar el producto de los arrays");
+            System.out.println((prodEscaVecArray(array1, array2)));
+        } else if (menu.equals("i")) {
+            System.out.println("Función para invertir el orden del array");
+            System.out.println(Arrays.toString(inveArray(array1)));
         }
     }
-    public static void printArrray(int [] array){
-        int[] printArray = array.clone();
+    public static int[] Array(){
+        int[] array1 = new int[9];
+        System.out.println("Dime los 9 valores para el array1");
+        for (int i = 0; i < 9; i++) {
+            System.out.println("Dime el valor");
+            array1[i] = scanner.nextInt();
+        }
+    }
+
+    public static void printArrray(int[] array1) {
+        int[] printArray = array1.clone();
         System.out.println(Arrays.toString(printArray));
     }
-    public static int maxArray(int[] array){
-        int maximo = array[0];
-        for (int i =0; i < array.length; i++){
-            if (array[i] > maximo) {
-                maximo = array[i];
+
+    public static int maxArray(int[] array1) {
+        int maximo = array1[0];
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] > maximo) {
+                maximo = array1[i];
             }
         }
         return maximo;
     }
-    public static int minArray(int[] array){
-        int minimo = array[0];
-        for (int i = 0; i < array.length; i++){
-            if (array[i] < minimo) {
-                minimo = array[i];
+
+    public static int minArray(int[] array1) {
+        int minimo = array1[0];
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] < minimo) {
+                minimo = array1[i];
             }
         }
         return minimo;
     }
-    public static int medArray (int[] array){
+
+    public static int medArray(int[] array1) {
         int suma = 0;
         int contador = 0;
-        for (int i = 0; i < array.length; i++){
-            suma += array[i]; 
+        for (int i = 0; i < array1.length; i++) {
+            suma += array1[i];
             contador++;
         }
         return suma / contador;
     }
-    public static boolean existeArray(int[] array){
+
+    public static boolean existeArray(int[] array1) {
         int exElement = 0;
         System.out.println("Dime el número que quieres comprobar");
         int element = scanner.nextInt();
-        for (int i = 0; i < array.length; i++){
-            if (element == array[i]){
+        for (int i = 0; i < array1.length; i++) {
+            if (element == array1[i]) {
                 exElement = 1;
             }
         }
         return (exElement == 1);
     }
-    public static int[] sumVecArray(int[] array, int[] array2){
+
+    public static int[] sumVecArray(int[] array1, int[] array2) {
         int[] sumArray = new int[9];
-        for (int i = 0; i < array.length; i++) {
-            int suma = array[i] + array2[i];
-            sumArray[i] = suma;
+        if (array1.length == array2.length){
+            for (int i = 0; i < array1.length; i++) {
+                int suma = array1[i] + array2[i];
+                sumArray[i] = suma;
+            }
+        } else {
+            System.out.println("No se pueden sumar los arrays no son iguales");
         }
         return sumArray;
-    }/*
-    public static double resVecArray(int[] array){
+    }
+
+    public static int[] restVecArray(int[] array1, int[] array2) {
+        int[] restArray = new int[9];
+        if (array1.length == array2.length) {
+            for (int i = 0; i < array1.length; i++) {
+                int resta = array1[i] - array2[i];
+                restArray[i] = resta;
+            }
+        } else {
+            System.out.println("No se puede hacer la resta de los arrays no son iguales");
+        }
+        return restArray;
+    }
+    public static int prodEscaVecArray(int[] array1, int[] array2) {
+        int result = 0;
+        if (array1.length == array2.length) {
+            for (int i = 0; i < array1.length; i++) {
+                int prod = array1[i] * array2[i];
+                result += prod;
+            }
+        } else {
+            System.out.println("No se puede hacer el producto de los arrays no son iguales");
+        }
+        return result;
+    }
+    public static int[] inveArray(int[] array1){
+        int contador = array1.length;
+        contador = contador - 1;
+        System.out.print(Arrays.toString(array1));
+        System.out.println("Array invertido");
+        int[] inverArray = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            inverArray[contador] += array1[i];
+            contador--;
+        }
+        return inverArray;
+    }
+    public static void iverArray(int[] array1){
 
     }
-    public static double prodVecArray(int[] array){
-
-    }*/
 }
