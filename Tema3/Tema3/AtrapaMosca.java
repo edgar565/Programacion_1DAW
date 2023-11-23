@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class AtrapaMosca {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
-    static
-
+    static int posicion = 0;
     public static void main(String[] args){
         int posicionMosca = random.nextInt(1, 15);
         int[] mosca = new int[15];
@@ -16,16 +15,18 @@ public class AtrapaMosca {
         System.out.println(Arrays.toString(mosca));
         System.out.println(posicionMosca);
         System.out.println("Dime una posición entre 1 y 15");
-        juego(posicionMosca, mosca,);
+        juego(posicionMosca, mosca);
     }
     public static int posicionJugador(){
-        int posicion = scanner.nextInt();
+        posicion = scanner.nextInt();
         while (posicion < 1 || posicion > 15){
             System.out.println("Incorrecto, dime una posición entre 1 y 15");
             posicion = scanner.nextInt();
         }
+
+        return posicion;
     }
-    public static void juego(int posicionMosca, int[] mosca, int posicion){
+    public static void juego(int posicionMosca, int[] mosca){
         boolean victoria = false;
         while (!victoria) {
             posicionJugador();

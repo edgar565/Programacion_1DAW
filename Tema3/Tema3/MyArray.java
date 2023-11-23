@@ -172,7 +172,6 @@ public class MyArray {
         return inverArray;
     }
     public static void invertirArray(int[] array1, int[] arrayInver){
-        int [] inverArray = inveArray(array1);
         int contador = array1.length - 1;
         for (int i = 0; i < array1.length; i++) {
             arrayInver[contador] = array1[i];
