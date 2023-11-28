@@ -125,7 +125,7 @@ public class MyArray {
         return (exElement == 1);
     }
     public static int[] sumVecArray(int[] array1, int[] array2) {
-        int[] sumArray = new int[9];
+        int[] sumArray = new int[array1.length];
         if (array1.length == array2.length){
             for (int i = 0; i < array1.length; i++) {
                 int suma = array1[i] + array2[i];
