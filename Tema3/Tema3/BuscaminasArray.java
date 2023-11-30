@@ -2,8 +2,8 @@ package Tema3;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
-public class Buscaminas {
+
+public class BuscaminasArray {
     public static void main(String[] args) {
         Random random = new Random();
         String[] tablero = new String[]{"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};

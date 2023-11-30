@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class BuscarParejas {
+public class BuscarParejasArray {
     static Random random = new Random();
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {

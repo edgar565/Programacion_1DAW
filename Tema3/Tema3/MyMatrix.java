@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MyMatrix {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int[][] matriz2 = new int[][]{{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}};
+        int[][] matriz2 = new int[][]{{10, 21, 32},{43, 54,65}, {76, 87, 98}};
         int[][] matriz1 = new int[0][0];
         System.out.println(Arrays.deepToString(matriz2));
         System.out.println("Elige entre una de las siguientes opciones: \n" +
@@ -14,13 +14,11 @@ public class MyMatrix {
                 "b. Función que devuelve el máximo de la matriz\n" +
                 "c. Función que devuelve el mínimo de la matriz\n" +
                 "d. Función que devuelve la media\n" +
-                "e. Función para saber si un elemento está en el array\n" +
-                "f. Función para sumar los arrays\n" +
-                "g. Función para restar los arrays\n" +
-                "h. Función para realizar el producto escalar de los arrays\n" +
-                "i. Función para invertir el orden del array1\n" +
-                "j. Procedimiento para invertir el orden del array1\n" +
-                "k. Función para saber si el array1 es capicua\n");
+                "e. Función para saber si un elemento está en la matriz\n" +
+                "f. Función para saber cuantas veces hay un elemento en una matriz\n" +
+                "g. Función para sumar las matrices\n" +
+                "h. Función para restar las matrices\n" +
+                "i. Función para comprobar si es la matriz unidad\n");
         String menu = scanner.next();
         if (menu.equals("a")) {
             printMatriz(matriz2);
@@ -38,40 +36,35 @@ public class MyMatrix {
             System.out.println("Función que devuelve la media");
             System.out.println(Arrays.toString(matriz2));
             System.out.println(medMatriz(matriz1));
-        } /*else if (menu.equals("e")) {
-            System.out.println("Función para saber si un elemento está en el array");
-            System.out.println(Arrays.toString(matriz2));
-            System.out.println(existeArray(matriz2));
+        } else if (menu.equals("e")) {
+            System.out.println(("Función para saber si existe un elemento en la matriz"));
+            System.out.println(Arrays.deepToString(matriz2));
+            System.out.println((existeMatriz(matriz2)));
         } else if (menu.equals("f")) {
-            System.out.println(("Función para sumar los arrays"));
-            matriz1 = matriz();
-            System.out.println(Arrays.toString(matriz1));
-            System.out.println(Arrays.toString(matriz2));
-            System.out.println(Arrays.toString(sumVecArray(matriz1, matriz2)));
+            System.out.println("Función para saber cuantas veces hay un elemento está en la matriz");
+            System.out.println(Arrays.deepToString(matriz2));
+            System.out.println("El elemento esta: " + existenciasMatriz(matriz2) + " veces");
         } else if (menu.equals("g")) {
-            System.out.println("Función para restar los arrays");
+            System.out.println("Función para suma de las matrices");
             matriz1 = matriz();
-            System.out.println(Arrays.toString(matriz1));
-            System.out.println(Arrays.toString(matriz2));
-            System.out.println(Arrays.toString(restVecArray(matriz1, matriz2)));
+            System.out.println(Arrays.deepToString(matriz1));
+            System.out.println(Arrays.deepToString(matriz2));
+            System.out.println("El resultado de la suma es: ");
+            System.out.println(Arrays.deepToString(sumMatrices(matriz1, matriz2)));
         } else if (menu.equals("h")) {
-            System.out.println("Función para realizar el producto de los arrays");
+            System.out.println("Función para restar las matrices");
             matriz1 = matriz();
-            System.out.println(Arrays.toString(matriz1));
-            System.out.println(Arrays.toString(matriz2));
-            System.out.println((prodEscaVecArray(matriz1, matriz2)));
+            System.out.println(Arrays.deepToString(matriz1));
+            System.out.println(Arrays.deepToString(matriz2));
+            System.out.println("El resultado de la resta es: ");
+            System.out.println(Arrays.deepToString(retMatrices(matriz1, matriz2)));
         } else if (menu.equals("i")) {
-            System.out.println("Función para invertir el orden del array");
-            System.out.println(Arrays.toString(inveArray(matriz2)));
-        } else if (menu.equals("j")) {
-            System.out.println("Procedimiento para invertir el orden del array");
-            int[] arrayInver = new int[matriz1.length];
-            System.out.println(Arrays.toString(matriz1));
-            System.out.println(Arrays.toString(arrayInver));
-        } else if (menu.equals("k")) {
-            System.out.println("Función para saber si el array1 es capicua");
-            System.out.println(capicuaArray(matriz1));
-        }*/
+            System.out.println("Función para comprobar que es la matriz unidad");
+            matriz1 = matriz();
+            System.out.println(Arrays.deepToString(matriz1));
+            System.out.println("El resultado es: ");
+            System.out.println((matrizUnidad(matriz1)));
+        }
     }
     public static int[][] matriz() {
         int[][] matriz1 = new int[3][3];
@@ -85,7 +78,12 @@ public class MyMatrix {
         return matriz1;
     }
     public static void printMatriz(int[][] matriz2) {
-        System.out.println((Arrays.deepToString(matriz2)));
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2[0].length; j++) {
+                System.out.print(matriz2[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
     public static int maxMatriz(int[][] matriz1){
         int maximo = matriz1[0][0];
@@ -113,12 +111,80 @@ public class MyMatrix {
         int suma = 0;
         int contador = 0;
         for (int i = 0; i < matriz1.length; i++) {
-            for (int j = 0; j < matriz1[i][j]; j++) {
+            for (int j = 0; j < matriz1[i].length; j++) {
                 suma += matriz1[i][j];
                 contador++;
             }
         }
 
         return suma / contador;
+    }
+    public static boolean existeMatriz(int [][] matriz2){
+        int exElement = 0;
+        System.out.println("Dime el número que quieres comprobar");
+        int element = scanner.nextInt();
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2[i].length; j++) {
+                if (element == matriz2[i][j]) {
+                    exElement = 1;
+                }
+            }
+        }
+        return (exElement == 1);
+    }
+    public static int existenciasMatriz(int [][] matriz2){
+        int exElement = 0;
+        System.out.println("Dime el número que quieres comprobar");
+        int element = scanner.nextInt();
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2[i].length; j++) {
+                if (element == matriz2[i][j]) {
+                    exElement++;
+                }
+            }
+        }
+        return exElement;
+    }
+    public static int[][] sumMatrices(int[][] matriz1, int[][] matriz2){
+        int[][] sumMatriz = new int[matriz1.length][matriz1.length];
+        if (matriz1.length == matriz2.length){
+            for (int i = 0; i < matriz1.length; i++) {
+                for (int j = 0; j < matriz2[i].length; j++) {
+                    int suma = matriz1[i][j] + matriz2[i][j];
+                    sumMatriz[i][j] = suma;
+                }
+            }
+        } else {
+            System.out.println("No se pueden sumar las matrices no son iguales");
+        }
+        return sumMatriz;
+    }
+    public static int[][] retMatrices(int[][] matriz1, int[][] matriz2){
+        int[][] restMatriz = new int[matriz1.length][matriz1.length];
+        if (matriz1.length == matriz2.length){
+            for (int i = 0; i < matriz1.length; i++) {
+                for (int j = 0; j < matriz2[i].length; j++) {
+                    int suma = matriz1[i][j] - matriz2[i][j];
+                    restMatriz[i][j] = suma;
+                }
+            }
+        } else {
+            System.out.println("No se pueden restar las matrices no son iguales");
+        }
+        return restMatriz;
+    }
+    public static boolean matrizUnidad(int[][] matriz1) {
+        boolean largo = false;
+        boolean diagonal = false;
+
+        for (int i = 0; i < matriz1.length; i++) {
+            if (matriz1[i][i] == 1) {
+                diagonal = true;
+            }
+            if (matriz1.length == matriz1[0].length){
+                largo = true;
+            }
+        }
+        return (largo && diagonal);
     }
 }
