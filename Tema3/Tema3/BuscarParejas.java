@@ -15,8 +15,8 @@ public class BuscarParejas {
         juego(cartas,animales);
         System.out.println("HAS GANADO FELICIDADES!!");
         System.out.println("Quieres volver a empezar? Si o no");
-        String seguir = scanner.toString();
-        while (seguir.equals("Si, si, SI")){
+        String seguir = scanner.next();
+        while (seguir.equals("si")){
             rotación(animales);
             juego(cartas,animales);
         }

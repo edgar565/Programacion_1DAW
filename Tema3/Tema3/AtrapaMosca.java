@@ -13,7 +13,6 @@ public class AtrapaMosca {
         int[] mosca = new int[15];
         mosca[posicionMosca] = 1;
         System.out.println(Arrays.toString(mosca));
-        System.out.println(posicionMosca);
         System.out.println("Dime una posición entre 1 y 15");
         juego(posicionMosca, mosca);
     }
