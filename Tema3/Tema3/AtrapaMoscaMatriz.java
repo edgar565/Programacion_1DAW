@@ -22,6 +22,7 @@ public class AtrapaMoscaMatriz {
             System.out.println("Dime una posición para la Y: (0 - 3)");
             int y = scanner.nextInt();
             if (tablero[x][y] == 1){
+                matriz(tablero);
                 ascii();
                 resultado = true;
             } else {
@@ -36,12 +37,10 @@ public class AtrapaMoscaMatriz {
                 }
                 if (adyacente == true) {
                     int nuevaMoscaX = random.nextInt(0, 3);
-                    ;
                     int nuevaMoscaY = random.nextInt(0, 3);
                     tablero[moscaX][moscaY] = 0;
                     tablero[nuevaMoscaX][nuevaMoscaY] = 1;
                 }
-                matriz(tablero);
             }
         }
     }
