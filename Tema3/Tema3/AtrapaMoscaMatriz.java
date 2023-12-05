@@ -40,6 +40,7 @@ public class AtrapaMoscaMatriz {
                     tablero[nuevaMoscaX][nuevaMoscaY] = 1;
                 }
             }
+            System.out.println("Vuelve a decirme los valores no has estado cerca");
         }
     }
     public static void matriz(int[][] tablero){
