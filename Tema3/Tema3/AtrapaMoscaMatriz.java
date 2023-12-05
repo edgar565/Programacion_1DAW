@@ -13,10 +13,8 @@ public class AtrapaMoscaMatriz {
         int moscaX = random.nextInt(0,3); ;
         int moscaY = random.nextInt(0,3);
         tablero[moscaX][moscaY] = 1;
-        System.out.println(moscaX);
-        System.out.println(moscaY);
         boolean resultado = false;
-        while (resultado == false){
+        while (!resultado){
             System.out.println("Dime la posición para la X: (0 - 3)");
             int x = scanner.nextInt();
             System.out.println("Dime una posición para la Y: (0 - 3)");
