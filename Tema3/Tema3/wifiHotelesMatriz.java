@@ -53,6 +53,12 @@ public class wifiHotelesMatriz {
                     hotel[i][j] = potenciaRouter - 2;
                 } else if ((i == planta - 2 && j == habitacion) || (i == planta + 2 && j == habitacion)) {
                     hotel[i][j] = potenciaRouter - 2;
+                } else if ((i == planta - 3 && j == habitacion) || (i == planta + 3 && j == habitacion)) {
+                    hotel[i][j] = potenciaRouter - 3;
+                } else if ((i == planta - 4 && j == habitacion) || (i == planta + 4 && j == habitacion)) {
+                    hotel[i][j] = potenciaRouter - 4;
+                }else if ((i == planta - 5 && j == habitacion) || (i == planta + 5 && j == habitacion)) {
+                    hotel[i][j] = potenciaRouter - 5;
                 }
             }
         }
