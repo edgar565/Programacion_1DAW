@@ -18,16 +18,24 @@ public class HundirFlota {
         tableroVisible = new String[][]{{"", " 1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}, {"A", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"B", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"C", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"D", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"E", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"F", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"G", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"H", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"I", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"J", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"}};
         nivelesDificultad();
         crearTablero();
+        matriz(tableroVisible);
         int i = 0;
-        while (i < intentos){
-            matriz(tableroVisible);
+        boolean win = false;
+        while (i < intentos || win == true ){
             disparo();
             matriz(tableroVisible);
             i++;
         }
     }
-    public static void gameOverWin(){
-
+    public static boolean gameOverWin(int Yfinal, int X, boolean win){
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if ((!tablero[Yfinal][X].equals("-")) || (!tablero[Yfinal][X].equals("0"))){
+                    win = true;
+                }
+            }
+        }
+        return win;
     }
     public static void intentos() {
         switch (dificultad) {
@@ -108,9 +116,9 @@ public class HundirFlota {
         } while (dificultad < 1 || dificultad > 4);
         if (dificultad == 4) {
             System.out.println("Dime el tamaño del tablero ej: x 10 e y 10");
-            System.out.println("Dime el tamaño de X");
+            System.out.println("Dime el tamaño de X ");
             int tamañoX = scanner.nextInt();
-            System.out.println("Dime el tamaño de Y");
+            System.out.println("Dime el tamaño de Y ");
             int tamañoY = scanner.nextInt();
         }
         barcos();
@@ -176,40 +184,48 @@ public class HundirFlota {
     }
     public static void disparo(){
         System.out.println("Dime donde quieres disparar");
-        System.out.println("Dime la X entre 0 - 10");
+        System.out.println("Dime la X entre 1 - 10");
         int X = scanner.nextInt();
+        while (X < 1 || X > 10){
+            System.out.println("Dime la X entre 1 - 10");
+            X = scanner.nextInt();
+        }
         System.out.println("Dime la Y entre A - J");
-        String Y = scanner.next();
+        char Y = scanner.next().toUpperCase().charAt(0);
+        if (Y < 65 || Y > 74){
+            System.out.println("Dime la Y entre A - J");
+            Y = scanner.next().toUpperCase().charAt(0);
+        }
         int Yfinal = 0;
         switch (Y){
-            case "A":
+            case 65:
                 Yfinal = 1;
                 break;
-            case "B":
+            case 66:
                 Yfinal = 2;
                 break;
-            case "C":
+            case 67:
                 Yfinal = 3;
                 break;
-            case "D":
+            case 68:
                 Yfinal = 4;
                 break;
-            case "E":
+            case 69:
                 Yfinal = 5;
                 break;
-            case "F":
+            case 70:
                 Yfinal = 6;
                 break;
-            case "G":
+            case 71:
                 Yfinal = 7;
                 break;
-            case "H":
+            case 72:
                 Yfinal = 8;
                 break;
-            case "I":
+            case 73:
                 Yfinal = 9;
                 break;
-            case "J":
+            case 74:
                 Yfinal = 10;
                 break;
         }
@@ -220,6 +236,7 @@ public class HundirFlota {
             tableroVisible[Yfinal][X] = "A";
         } else if ((tablero[Yfinal][X].equals("L")) || (tablero[Yfinal][X].equals("B")) || (tablero[Yfinal][X].equals("Z")) || (tablero[Yfinal][X].equals("P"))) {
             tableroVisible[Yfinal][X] = "X";
+            tablero[Yfinal][X] = "0";
         }
     }
     public static void matriz(String[][] tableroVisible) {

@@ -17,8 +17,16 @@ public class AtrapaMoscaMatriz {
         while (!resultado){
             System.out.println("Dime la posición para la X: (0 - 3)");
             int x = scanner.nextInt();
+            while (x < 0 || x > 3){
+                System.out.println("Dime la posición para la X: (0 - 3)");
+                x = scanner.nextInt();
+            }
             System.out.println("Dime una posición para la Y: (0 - 3)");
             int y = scanner.nextInt();
+            while (y < 0 || y > 3){
+                System.out.println("Dime la posición para la Y: (0 - 3)");
+                y = scanner.nextInt();
+            }
             if (tablero[x][y] == 1){
                 matriz(tablero);
                 ascii();
@@ -38,9 +46,10 @@ public class AtrapaMoscaMatriz {
                     int nuevaMoscaY = random.nextInt(0, 3);
                     tablero[moscaX][moscaY] = 0;
                     tablero[nuevaMoscaX][nuevaMoscaY] = 1;
+                }else {
+                    System.out.println("Vuelve a decirme los valores, no has estado cerca");
                 }
             }
-            System.out.println("Vuelve a decirme los valores no has estado cerca");
         }
     }
     public static void matriz(int[][] tablero){
