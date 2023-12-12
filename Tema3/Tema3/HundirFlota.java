@@ -2,6 +2,7 @@ package Tema3;
 
 import com.sun.source.tree.WhileLoopTree;
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class HundirFlota {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
     static int dificultad = 0;
-    static int intentos, barcos;
+    static int intentos, barcos, Yfinal, X;
     static int lanchas = 0, acorazados = 0, portaaviones = 0, buques = 0;
     static String[][] tablero, tableroVisible;
     public static void main(String[] args) {
@@ -21,13 +22,19 @@ public class HundirFlota {
         matriz(tableroVisible);
         int i = 0;
         boolean win = false;
-        while (i < intentos || win == true ){
+        while (i <= intentos || gameOverWin(win) == false ){
             disparo();
             matriz(tableroVisible);
             i++;
+            if (i == intentos){
+                System.out.println("ES LA ULTIMA RONDA");
+            }
+        }
+        if (i > intentos){
+            System.out.println("HAS PERDIDO");
         }
     }
-    public static boolean gameOverWin(int Yfinal, int X, boolean win){
+    public static boolean gameOverWin(boolean win){
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[0].length; j++) {
                 if ((!tablero[Yfinal][X].equals("-")) || (!tablero[Yfinal][X].equals("0"))){
@@ -54,7 +61,6 @@ public class HundirFlota {
                 break;
         }
     }
-
     public static void barcos() {
         switch (dificultad) {
             case 1:
@@ -104,7 +110,6 @@ public class HundirFlota {
                 break;
         }
     }
-
     public static void nivelesDificultad() {
         do {
             System.out.println("Dime la dificultad a la que quieres jugar:\n" +
@@ -120,10 +125,32 @@ public class HundirFlota {
             int tamañoX = scanner.nextInt();
             System.out.println("Dime el tamaño de Y ");
             int tamañoY = scanner.nextInt();
+           // crearTableroPersonalizado(tamañoX,tamañoY);
         }
         barcos();
         intentos();
     }
+    /*public static void crearTableroPersonalizado(int tamañoX, int tamañoY){
+        tablero = new String[tamañoX + 1][tamañoY + 1];
+        tableroVisible = new String[tamañoX + 1][tamañoY + 1];
+        for (int i = 0; i < tamañoX + 1;i++) {
+            for (int j = 1; j < tamañoY + 1; j++) {
+                String numeros = String.valueOf(1);
+                tablero[i][j] = numeros;
+            }
+        }
+        for (int i = 1; i < tamañoX + 1;i++) {
+            for (int j = 1; j < tamañoY + 1; j++) {
+                tablero[i][j] = "-";
+            }
+        }
+        for (int i = 0; i < tablero.length;i++){
+            for (int j = 0; j < tablero[i].length;j++){
+                System.out.print(tablero[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }*/
     public static void crearTablero() {
         ponerLanchas();
         ponerBuques();
