@@ -4,62 +4,61 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class CaesarCipher {
-     static String cadena;
-    public static void main (String []args){
+    static String cadena;
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("a. Cifrar mensaje\n" +
                 "b. Descifrar mensaje");
         String menu = scanner.nextLine().toUpperCase();
-        switch (menu){
-            case "A":
-                System.out.println("Dime la cadena para cifrarla");
-                cadena = scanner.nextLine().toUpperCase();
-                System.out.println(encrypt(cadena));
-                break;
-            case "B":
-                System.out.println("Dime la cadena para descifrarla");
-                cadena = scanner.nextLine().toUpperCase();
-                //System.out.println(decrypt(cadena));
-                break;
+        while (menu.equals("A")){
+            System.out.println("Dime la cadena para cifrarla");
+            cadena = scanner.nextLine().toUpperCase();
+            System.out.println(encrypt(cadena));
         }
-
+        while (menu.equals("B")){
+            System.out.println("Dime la cadena para descifrarla");
+            cadena = scanner.nextLine().toUpperCase();
+            System.out.println(decrypt(cadena));
+        }
     }
-    public static String encrypt(String cadena){
-        String[] cadenaAsciiArray = new String[cadena.length()];
-        String cadenaEncrypt = "";
-        int ascii = 0;
-        for (int x = 0; x < cadena.length(); x++) {
-            ascii = ((int) cadena.charAt(x)) + 1;
-            if (ascii >= 65 && ascii <= 90) {
-                cadenaAsciiArray[x] = String.valueOf(ascii);
-                if (cadena.charAt(x) == 'Z') {
-                    cadenaAsciiArray[x] = "65";
+    public static String encrypt(String message) {
+        char[] charArray = message.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                charArray[i] = (char) ((ch - base + 1) % 26 + base);
+                if (ch == 'Z' || ch == 'z') {
+                    charArray[i] = (char) (base);
                 }
-            }else if (!(ascii >= 48 && ascii <= 57)){
-                cadenaAsciiArray[x] = String.valueOf(cadena.charAt(x));
+            } else if (Character.isDigit(ch)) {
+                charArray[i] = (char) ((ch - '0' + 1) % 10 + '0');
+                if (ch == '9') {
+                    charArray[i] = '0';
+                }
             }
         }
-        for (int x = 0; x < cadena.length(); x++) {
-            ascii = ((int) cadena.charAt(x)) + 1;
-            if (ascii >= 48 && ascii <= 57) {
-                cadenaAsciiArray[x] = String.valueOf(ascii);
-                if (cadena.charAt(x) == '9') {
-                    cadenaAsciiArray[x] = "48";
+        return new String(charArray);
+    }
+
+    public static String decrypt(String cadena) {
+        char[] charArray = cadena.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
+            if (Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                charArray[i] = (char) ((ch - base - 1 + 26) % 26 + base);
+                if (ch == 'A' || ch == 'a') {
+                    charArray[i] = (char) ('Z');
                 }
-            } else if (!(ascii >= 65 && ascii <= 90)){
-                cadenaAsciiArray[x] = String.valueOf(cadena.charAt(x));
+            } else if (Character.isDigit(ch)) {
+                charArray[i] = (char) ((ch - '0' - 1 + 10) % 10 + '0');
+                if (ch == '0') {
+                    charArray[i] = '9';
+                }
             }
         }
-        for (int x = 0; x < cadena.length(); x++){
-            cadenaAsciiArray[x] = (char) cadenaAsciiArray;
-        }
-        cadenaEncrypt = String.join(" ",cadenaAsciiArray);
-        return cadenaEncrypt;
+        return new String(charArray);
     }
-    /*public static String decrypt(String cadena){
-
-
-    }*/
-
-
 }
