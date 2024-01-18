@@ -42,18 +42,23 @@ public class pruebaHero {
             hero1.attack(hero2);
             System.out.println("El jugador " + hero1.name + " le quita " + hero1.potenciaAtaque);
             System.out.println(hero2);
-            if (hero2.defense < 15){
-                hero2.rest();
-            }else if (hero2.defense < 30){
-                hero2.drinkPotion();
+            if (hero1.defense < 30 && hero1.defense > 0){
+                hero1.drinkPotion();
+                hero1.defense = hero1.defense - 10;
+            }else if (hero1.defense >= 30){
+                hero1.rest();
+                hero1.defense = hero1.defense - 15;
+
             }
             hero2.attack(hero1);
             System.out.println("El jugador " + hero2.name + " le quita " + hero2.potenciaAtaque);
             System.out.println(hero1);
-            if (hero1.defense < 15){
-                hero1.rest();
-            }else if (hero1.defense < 30){
-                hero1.drinkPotion();
+            if (hero2.defense < 30 && hero2.defense > 0){
+                hero2.drinkPotion();
+                hero2.defense = hero2.defense - 10;
+            }else if (hero2.defense > 30){
+                hero2.rest();
+                hero2.defense = hero2.defense - 15;
             }
         }
     }

@@ -60,7 +60,7 @@ public class Hero {
     }
     public void attack(Hero hero2){
         potenciaAtaque = Math.max(attack - hero2.defense, 10);
-        hero2.health = potenciaAtaque - health;
+        hero2.health =  health - potenciaAtaque;
         experience = experience + 10;
         if (experience >= 50){
             levelUP();
