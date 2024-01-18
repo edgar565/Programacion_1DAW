@@ -94,10 +94,10 @@ public class Ejercicio10MyMath {
                 System.out.println("Dime un numero, para saber su factorial");
                 numero = scanner.nextInt();
                 System.out.println("El factorial es " + MyMath.factorial(numero));
-          /*  case 13:
+          case 13:
                 System.out.println("Dime un numero, para saber su factorial");
                 numero = scanner.nextInt();
-                System.out.println("El factorial es " + MyMath.factorial(numero));*/
+                System.out.println("El factorial es " + MyMath.factorial(numero));
             case 14:
                 System.out.println("Dime los tres coeficientes de una ecuación de segundo grado, para sabr cuantas soluciones hay");
                 int coeficiente1 = scanner.nextInt();

@@ -5,6 +5,8 @@ public class Persona {
     String nombre;
     String apellidos;
     int edad;
+    static final int adultAge = 18;
+    static final  int retiredAge = 65;
     public Persona(String DNI, String nombre, String apellidos, int edad) {
         this.DNI = DNI;
         this.nombre = nombre;
@@ -63,6 +65,13 @@ public class Persona {
         return comprobarRetirado;
     }
     public int ageDifference(int edad1, int edad2){
-        return edad1 - edad2;
+        return Math.abs(edad1 - edad2);
+    }
+    public static boolean checkDNI(String dni){
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        String numero = dni.substring(0, 8);
+        char letraCalculada = letras.charAt(Integer.parseInt(numero) % 23);
+        char letraDNI = Character.toUpperCase(dni.charAt(8));
+        return letraCalculada  ==  letraDNI;
     }
 }
