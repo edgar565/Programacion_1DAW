@@ -58,11 +58,11 @@ public class Hero {
                 "\n - Defensa: " + defense;
        return informacion;
     }
-    public void attack(Hero hero2){
-        potenciaAtaque = Math.max(attack - hero2.defense, 10);
-        hero2.health =  health - potenciaAtaque;
-        experience = experience + 10;
-        if (experience >= 50){
+    public void attack(Hero hero1,Hero hero2){
+        potenciaAtaque = Math.max(hero1.attack - hero2.defense, 10);
+        hero2.health =  hero2.health - potenciaAtaque;
+        hero1.experience = hero1.experience + 10;
+        if (hero1.experience >= 50){
             levelUP();
         }
     }

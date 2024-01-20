@@ -39,7 +39,7 @@ public class pruebaHero {
         int defense2 = scanner.nextInt();
         Hero hero2 = new Hero(name2, level2, health2, maxHealth2, experience2, attack2, defense2);
         while (hero1.health > 0 && hero2.health > 0){
-            hero1.attack(hero2);
+            hero1.attack(hero1, hero2);
             System.out.println("El jugador " + hero1.name + " le quita " + hero1.potenciaAtaque);
             System.out.println(hero2);
             if (hero1.defense < 30 && hero1.defense > 0){
@@ -48,17 +48,18 @@ public class pruebaHero {
             }else if (hero1.defense >= 30){
                 hero1.rest();
                 hero1.defense = hero1.defense - 15;
-
             }
-            hero2.attack(hero1);
-            System.out.println("El jugador " + hero2.name + " le quita " + hero2.potenciaAtaque);
-            System.out.println(hero1);
-            if (hero2.defense < 30 && hero2.defense > 0){
-                hero2.drinkPotion();
-                hero2.defense = hero2.defense - 10;
-            }else if (hero2.defense > 30){
-                hero2.rest();
-                hero2.defense = hero2.defense - 15;
+            if (hero1.health > 0) {
+                hero2.attack(hero2, hero1);
+                System.out.println("El jugador " + hero2.name + " le quita " + hero2.potenciaAtaque);
+                System.out.println(hero1);
+                if (hero2.defense < 30 && hero2.defense > 0) {
+                    hero2.drinkPotion();
+                    hero2.defense = hero2.defense - 10;
+                } else if (hero2.defense > 30) {
+                    hero2.rest();
+                    hero2.defense = hero2.defense - 15;
+                }
             }
         }
     }
