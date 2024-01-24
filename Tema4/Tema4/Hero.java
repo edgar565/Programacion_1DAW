@@ -4,7 +4,7 @@ public class Hero {
     private String name;
     private static String DEFAULT_NAME = "Personaje";
     private int level;
-    private int health;
+    public int health;
     private static int DEFAULT_HEALTH = 50;
     private int maxHealth;
     private static final int DEFAULT_MAXHEALTH = 100;
@@ -53,6 +53,9 @@ public class Hero {
         return defense;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
     public void drinkPotion(){
         health = health + potion;
         if (health > maxHealth){
