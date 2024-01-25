@@ -6,14 +6,14 @@ public class Hero2 {
     public static void main(String[] args) {
         Random aleatorio = new Random();
         Hero player = new Hero("Jugador1", 0, 100, 100, 0, 25, 30);
-        int cantidadEnemigos = aleatorio.nextInt(1, 3);
-        Hero[] enemigos = new Hero[cantidadEnemigos];
-        for (int x = 0; x < enemigos.length; x++) {
-            enemigos[x] = new Hero();
-        }
         int salud;
         int oleadas = 0;
         do {
+            int cantidadEnemigos = aleatorio.nextInt(1, 3);
+            Hero[] enemigos = new Hero[cantidadEnemigos];
+            for (int x = 0; x < enemigos.length; x++) {
+                enemigos[x] = new Hero();
+            }
             int huir = aleatorio.nextInt(1,100);
             int escapadoEnemigo = 0;
             for (int x = 0; x < enemigos.length; x++) {

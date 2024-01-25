@@ -3,9 +3,9 @@ public class Cuenta {
     private String numeroCuenta;
     private int saldo;
 
-    public Cuenta(String numeroCuenta, int saldo) {
+    public Cuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
-        this.saldo = saldo;
+        this.saldo = 0;
     }
 
     public String getNumeroCuenta() {
