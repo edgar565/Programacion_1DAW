@@ -19,6 +19,10 @@ public class Persona2 {
         return cuentasBancarias;
     }
 
+    public int getNumCuentas() {
+        return numCuentas;
+    }
+
     public int morosa() {
         int cuentasNegativo = 0;
         for (int x = 0; x < cuentasBancarias.length; x++) {
