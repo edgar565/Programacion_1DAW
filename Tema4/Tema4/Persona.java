@@ -64,8 +64,8 @@ public class Persona {
         }
         return comprobarRetirado;
     }
-    public int ageDifference(int edad1, int edad2){
-        return Math.abs(edad1 - edad2);
+    public int ageDifference(Persona person){
+        return Math.abs(this.edad - person.edad);
     }
     public static boolean checkDNI(String dni){
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";

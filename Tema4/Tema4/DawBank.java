@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DawBank {
+    int contadorMovimientos;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -117,7 +118,7 @@ public class DawBank {
     }
     public static void mostrarMovimientos(CuentaBancaria cuenta) {
         System.out.println("\nMOVIMIENTOS:");
-        ArrayList<Double> movimientos = cuenta.getMovimientos();
+        String movimientos = cuenta.getMovimientos();
         for (int i = 0; i < movimientos.size(); i++) {
             System.out.println(i + 1 + ". " + (movimientos.get(i) > 0 ? "Ingreso" : "Retirada") + ": " +
                     Math.abs(movimientos.get(i)) + " euros");

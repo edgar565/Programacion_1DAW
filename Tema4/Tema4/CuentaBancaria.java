@@ -1,4 +1,5 @@
 package Tema4;
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class CuentaBancaria {
@@ -6,7 +7,7 @@ public class CuentaBancaria {
     private String titular;
     private String dni;
     private double saldo;
-    private final ArrayList<Double> movimientos;
+    private String[] movimientos;
     public CuentaBancaria() {
         iban = "ES0000000000000000000000";
         titular = "LibreCoders";
@@ -19,7 +20,7 @@ public class CuentaBancaria {
         this.titular = titular;
         this.dni = dni;
         this.saldo = 0;
-        this.movimientos = new ArrayList<>();
+        this.movimientos = new String[100];
     }
     public String getIban() {
         return iban;
@@ -33,14 +34,15 @@ public class CuentaBancaria {
     public double getSaldo() {
         return saldo;
     }
-    public ArrayList<Double> getMovimientos() {
+    public String[] getMovimientos() {
         return movimientos;
     }
     public void realizarIngreso(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
-            movimientos.add(cantidad);
-            if (saldo < -50) {
+            int contadorMovimientos = 0;
+            movimientos.add = String.valueOf(cantidad);
+            if (saldo > -50 && saldo < 0) {
                 System.out.println("AVISO: Saldo negativo");
             }
             if (cantidad > 3000) {
@@ -55,7 +57,7 @@ public class CuentaBancaria {
             if (saldo - cantidad >= -50) {
                 saldo -= cantidad;
                 movimientos.add(-cantidad);
-                if (saldo < -50) {
+                if (saldo > -50 && saldo < 0) {
                     System.out.println("AVISO: Saldo negativo");
                 }
                 if (cantidad > 3000) {

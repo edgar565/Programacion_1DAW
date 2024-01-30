@@ -15,6 +15,10 @@ public class Cuenta {
     public int getSaldo() {
         return saldo;
     }
+    public void setSaldo(int saldo) {
+        this.saldo += saldo;
+    }
+
     public void recibirAbonos(int abono){
         saldo = saldo + abono;
     }

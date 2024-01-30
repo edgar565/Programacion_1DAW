@@ -32,12 +32,13 @@ public class Persona2 {
         }
         return cuentasNegativo;
     }
-    public void añadirCuentas(Cuenta cuenta) {
+    public boolean añadirCuentas(Cuenta cuenta) {
+        boolean añadida = false;
         if (numCuentas < 3) {
             cuentasBancarias[numCuentas] = cuenta;
             numCuentas++;
-        }else {
-            System.out.println("YA TIENES 3 CUENTAS");
+            añadida =true;
         }
+        return añadida;
     }
 }

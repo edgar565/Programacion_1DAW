@@ -50,23 +50,19 @@ public class PruebaCuentas {
         }while (opcion != 55);
     }
     public static void crearPersonas(){
-        System.out.println("Porfavor introduce un DNI");
-        String DNI = scanner.next();
-        Persona2 persona = new Persona2(DNI);
+        Persona2 persona = leerDni();
         for (int x = personas; x < arrayPersonas.length; x++){
             arrayPersonas[x] = persona;
         }
         personas++;
     }
     public static void crearCuenta(){
-        System.out.println("Porfavor introduce un DNI");
-        String DNI = scanner.next();
-        Persona2 person = new Persona2(DNI);
+        Persona2 person = leerDni();
             if (person.getDNI().equals(person.getDNI())){
                Cuenta cuenta = new Cuenta(numeroCuenta());
                person.añadirCuentas(cuenta);
                 System.out.println("Cuenta creada correctamente:\n" +
-                        "DNI asociado: " + DNI + "\n" +
+                        "DNI asociado: " + person.getDNI() + "\n" +
                         "Número de cuenta: " + numeroCuenta());
             }
     }
@@ -79,10 +75,8 @@ public class PruebaCuentas {
         return "ES" + numero;
     }
     public static void mostrarDatos(){
-        System.out.println("Introduce el DNI");
-        String DNI = scanner.next();
-        Persona2 person = new Persona2(DNI);
-        System.out.println("La persona con DNI: " + DNI);
+        Persona2 person = leerDni();
+        System.out.println("La persona con DNI: " + person.getDNI());
         System.out.println("Tiene " + person.getNumCuentas() + " cuentas" );
         for (int x = 0; x < person.numCuentas; x++) {
             String cuenta = String.valueOf(person.cuentasBancarias[x]);
@@ -96,14 +90,7 @@ public class PruebaCuentas {
         }
     }
     public static void ingresarNomina(){
-        System.out.println("Inroduce el DNI");
-        String DNI = scanner.next();
-        Persona2 person = new Persona2(DNI);
-        System.out.println("Cuentas associadas: ");
-        for (int x = 0; x < person.numCuentas; x++ ){
-            String cuenta = String.valueOf(person.cuentasBancarias[x]);
-            System.out.println(x + 1 + ". Cuenta " + cuenta + " hay un saldo: " + person.cuentasBancarias[x].getSaldo());
-        }
+        Persona2 person = leerPersona();
         System.out.println("Elige la cuenta para ingresar la nomina");
         int cuentaNomina = scanner.nextInt();
         System.out.println("Cual es el importe a ingresar");
@@ -111,14 +98,7 @@ public class PruebaCuentas {
         person.cuentasBancarias[cuentaNomina].recibirAbonos(importe);
     }
     public static void recibirPago(){
-        System.out.println("Inroduce el DNI");
-        String DNI = scanner.next();
-        Persona2 person = new Persona2(DNI);
-        System.out.println("Cuentas associadas: ");
-        for (int x = 0; x < person.numCuentas; x++ ){
-            String cuenta = String.valueOf(person.cuentasBancarias[x]);
-            System.out.println(x + 1 + ". Cuenta " + cuenta + " hay un saldo: " + person.cuentasBancarias[x].getSaldo());
-        }
+        Persona2 person = leerPersona();
         System.out.println("Elige la cuenta para ingresar la nomina");
         int cuentaNomina = scanner.nextInt();
         System.out.println("Cual es el importe a ingresar");
@@ -127,22 +107,19 @@ public class PruebaCuentas {
     }
     public static void transferencias(){
         System.out.println("REALIZAR TRANSFERENCIA");
-        System.out.println("Inroduce el DNI");
-        String DNI = scanner.next();
-        Persona2 person = new Persona2(DNI);
-        System.out.println("Cuentas associadas: ");
-        for (int x = 0; x < person.numCuentas; x++ ){
-            String cuenta = String.valueOf(person.cuentasBancarias[x]);
-            System.out.println(x + 1 + ". Cuenta " + cuenta + " hay un saldo: " + person.cuentasBancarias[x].getSaldo());
-        }
+        System.out.println("Introduce los datos de la persona de origen");
+        Persona2 person = leerPersona();
+        System.out.println("Introduce los datos de la persona de destino");
+        Persona2 persona2 = leerPersona();
         System.out.println("Elige la cuenta de origen");
         int cuentaOrigen = scanner.nextInt();
         System.out.println("Introduce la cuenta de destino");
         int cuentaDestino = scanner.nextInt();
         System.out.println("Cual es el importe a transferir");
         int importe = scanner.nextInt();
-        //person.cuentasBancarias[cuentaOrigen].getSaldo() = importe;
-
+        persona2.cuentasBancarias[cuentaDestino].setSaldo(persona2.cuentasBancarias[cuentaDestino].getSaldo() + importe);
+        person.cuentasBancarias[cuentaOrigen].setSaldo(person.cuentasBancarias[cuentaOrigen].getSaldo() + importe);
+        System.out.println("Numero de cuenta: " + person.cuentasBancarias[cuentaOrigen].getNumeroCuenta() + " Saldo: " + person.cuentasBancarias[cuentaOrigen].getSaldo());
     }
     public static void personasMorosas(){
         System.out.println("Personas morosas");
@@ -151,5 +128,22 @@ public class PruebaCuentas {
                 System.out.println(arrayPersonas[x].getDNI());
             }
         }
+    }
+    public static Persona2 leerDni(){
+        System.out.println("Introduce el DNI");
+        String DNI = scanner.next();
+        Persona2 person = new Persona2(DNI);
+        return person;
+    }
+    public static Persona2 leerPersona(){
+        System.out.println("Introduce el DNI");
+        String DNI = scanner.next();
+        Persona2 person = new Persona2(DNI);
+        System.out.println("Cuentas associadas: ");
+        for (int x = 0; x < person.numCuentas; x++ ){
+            String cuenta = String.valueOf(person.cuentasBancarias[x]);
+            System.out.println(x + 1 + ". Cuenta " + cuenta + " hay un saldo: " + person.cuentasBancarias[x].getSaldo());
+        }
+        return person;
     }
 }
