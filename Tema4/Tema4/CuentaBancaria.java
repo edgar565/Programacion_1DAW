@@ -1,13 +1,13 @@
 package Tema4;
-import java.sql.Array;
-import java.util.ArrayList;
 
 public class CuentaBancaria {
     private final String iban;
     private String titular;
     private String dni;
     private double saldo;
-    private String[] movimientos;
+    private Double[] movimientos;
+    public int contadorMovimientos = 0;
+
     public CuentaBancaria() {
         iban = "ES0000000000000000000000";
         titular = "LibreCoders";
@@ -20,7 +20,7 @@ public class CuentaBancaria {
         this.titular = titular;
         this.dni = dni;
         this.saldo = 0;
-        this.movimientos = new String[100];
+        this.movimientos = new Double[100];
     }
     public String getIban() {
         return iban;
@@ -34,14 +34,14 @@ public class CuentaBancaria {
     public double getSaldo() {
         return saldo;
     }
-    public String[] getMovimientos() {
+    public Double[] getMovimientos() {
         return movimientos;
     }
     public void realizarIngreso(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
-            int contadorMovimientos = 0;
-            movimientos.add = String.valueOf(cantidad);
+            movimientos[contadorMovimientos] = cantidad;
+            contadorMovimientos++;
             if (saldo > -50 && saldo < 0) {
                 System.out.println("AVISO: Saldo negativo");
             }
@@ -56,7 +56,8 @@ public class CuentaBancaria {
         if (cantidad > 0) {
             if (saldo - cantidad >= -50) {
                 saldo -= cantidad;
-                movimientos.add(-cantidad);
+                movimientos[contadorMovimientos] = -cantidad;
+                contadorMovimientos++;
                 if (saldo > -50 && saldo < 0) {
                     System.out.println("AVISO: Saldo negativo");
                 }
@@ -69,5 +70,16 @@ public class CuentaBancaria {
         } else {
             System.out.println("Error: La cantidad a retirar debe ser mayor que cero.");
         }
+    }
+    public String toString(){
+        String variable = "" + getIban();
+        return String.format("%s %s", getDni())
+        System.out.println("\n ### DATOS DE LA CUENTA ###");
+        System.out.println("IBAN: " + getIban());
+        System.out.println("Titular: " + getTitular());
+        System.out.println("DNI: " + getDni());
+        System.out.println("Saldo: " + getSaldo() + " euros");
+        System.out.println();
+        return null;
     }
 }

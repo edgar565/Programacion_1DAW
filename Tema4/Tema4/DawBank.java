@@ -1,11 +1,13 @@
 package Tema4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class DawBank {
     int contadorMovimientos;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -26,17 +28,17 @@ public class DawBank {
                 String dni = scanner.nextLine();
                 System.out.println(" ### PORFAVOR ESPERE ###");
                 String iban = numeroCuenta();
-                cuenta = new CuentaBancaria(iban, titular,dni);
+                cuenta = new CuentaBancaria(iban, titular, dni);
                 System.out.println("La cuenta ha sido creada correctamente");
             }
-            if (opcion !=55) {
+            if (opcion != 55) {
                 System.out.print("\nIngrese el titular de la cuenta: ");
                 String titular = scanner.nextLine();
                 System.out.print("Ingrese el dni del titular de la cuenta:");
                 String dni = scanner.nextLine();
                 System.out.println("\n ### PORFAVOR ESPERE ###");
                 String iban = numeroCuenta();
-                cuenta = new CuentaBancaria(iban, titular,dni);
+                cuenta = new CuentaBancaria(iban, titular, dni);
                 do {
                     System.out.println("\nMenú Principal:");
                     System.out.println("1. Datos de la cuenta");
@@ -83,25 +85,24 @@ public class DawBank {
     }
 
     private static void mostrarDatosCuenta(CuentaBancaria cuenta) {
-        System.out.println("\n ### DATOS DE LA CUENTA ###");
-        System.out.println("IBAN: " + cuenta.getIban());
-        System.out.println("Titular: " + cuenta.getTitular());
-        System.out.println("DNI: " + cuenta.getDni());
-        System.out.println("Saldo: " + cuenta.getSaldo() + " euros");
-        System.out.println();
+
     }
+
     public static void mostrarIban(CuentaBancaria cuenta) {
         System.out.println("\nIBAN: " + cuenta.getIban());
         System.out.println();
     }
+
     public static void mostrarTitular(CuentaBancaria cuenta) {
         System.out.println("\nTITULAR: " + cuenta.getTitular());
         System.out.println();
     }
+
     public static void mostrarSaldo(CuentaBancaria cuenta) {
         System.out.println("\nSALDO: " + cuenta.getSaldo() + " euros");
         System.out.println();
     }
+
     public static void realizarIngreso(CuentaBancaria cuenta) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nINGRESE LA CANTIDAD A INGRESAR: ");
@@ -109,6 +110,7 @@ public class DawBank {
         cuenta.realizarIngreso(cantidad);
         System.out.println();
     }
+
     public static void realizarRetirada(CuentaBancaria cuenta) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nINGRESE LA CANTIDAD A RETIRAR: ");
@@ -116,15 +118,15 @@ public class DawBank {
         cuenta.realizarRetirada(cantidad);
         System.out.println();
     }
+
     public static void mostrarMovimientos(CuentaBancaria cuenta) {
         System.out.println("\nMOVIMIENTOS:");
-        String movimientos = cuenta.getMovimientos();
-        for (int i = 0; i < movimientos.size(); i++) {
-            System.out.println(i + 1 + ". " + (movimientos.get(i) > 0 ? "Ingreso" : "Retirada") + ": " +
-                    Math.abs(movimientos.get(i)) + " euros");
+        for (int i = 0; i < cuenta.contadorMovimientos; i++) {
+            double movimiento = cuenta.getMovimientos()[i];
+            System.out.println(movimiento);
         }
-        System.out.println();
     }
+
     public static String numeroCuenta() {
         StringBuilder numero = new StringBuilder();
         Random random = new Random();
