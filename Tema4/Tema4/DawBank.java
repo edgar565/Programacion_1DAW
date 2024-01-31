@@ -6,8 +6,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DawBank {
-    int contadorMovimientos;
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -85,7 +83,7 @@ public class DawBank {
     }
 
     private static void mostrarDatosCuenta(CuentaBancaria cuenta) {
-
+        System.out.println(cuenta);
     }
 
     public static void mostrarIban(CuentaBancaria cuenta) {

@@ -72,14 +72,12 @@ public class CuentaBancaria {
         }
     }
     public String toString(){
-        String variable = "" + getIban();
-        return String.format("%s %s", getDni())
-        System.out.println("\n ### DATOS DE LA CUENTA ###");
-        System.out.println("IBAN: " + getIban());
-        System.out.println("Titular: " + getTitular());
-        System.out.println("DNI: " + getDni());
-        System.out.println("Saldo: " + getSaldo() + " euros");
-        System.out.println();
-        return null;
+        return String.format(
+                "\n ### DATOS DE LA CUENTA ###\n" +
+                        "IBAN: %s\n" +
+                        "Titular: %s\n" +
+                        "DNI: %s\n" +
+                        "Saldo: %s euros",
+                getIban(), getTitular(), getDni(), getSaldo());
     }
 }
