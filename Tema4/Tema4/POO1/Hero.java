@@ -1,4 +1,4 @@
-package Tema4;
+package Tema4.POO1;
 
 public class Hero {
     private String name;

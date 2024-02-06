@@ -1,7 +1,5 @@
-package Tema4;
+package Tema4.POO2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 

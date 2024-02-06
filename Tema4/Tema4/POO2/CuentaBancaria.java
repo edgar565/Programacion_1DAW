@@ -1,4 +1,4 @@
-package Tema4;
+package Tema4.POO2;
 
 public class CuentaBancaria {
     private final String iban;

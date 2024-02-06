@@ -1,4 +1,4 @@
-package Tema4;
+package Tema4.POO1;
 
 public class pruebaReloj {
     public static void main(String[] args) {
