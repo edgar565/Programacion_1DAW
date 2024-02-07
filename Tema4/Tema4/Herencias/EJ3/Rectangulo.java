@@ -1,10 +1,10 @@
 package Tema4.Herencias.EJ3;
 
-class rectangulo extends Figura2D{
+class Rectangulo extends Figura2D{
     private double base;
     private double altura;
 
-    public rectangulo(double base, double altura) {
+    public Rectangulo(double base, double altura) {
         this.base = base;
         this.altura = altura;
     }

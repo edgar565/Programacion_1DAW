@@ -1,10 +1,10 @@
 package Tema4.Herencias.EJ3;
 
-class triangulo extends Figura2D{
+class Triangulo extends Figura2D{
     private double base;
     private double altura;
 
-    public triangulo(double base, double altura) {
+    public Triangulo(double base, double altura) {
         this.base = base;
         this.altura = altura;
     }

@@ -1,14 +1,14 @@
 package Tema4.Herencias.EJ2;
 
 
-
-class perro extends Animal {
-
-    public perro() {
+class Gallina extends Animal {
+    public Gallina() {
     }
+
     @Override
     public void comer() {
         System.out.print("Esta comiendo");
+
     }
 
     @Override
@@ -19,6 +19,6 @@ class perro extends Animal {
 
     @Override
     public void hacerRuido() {
-        System.out.println("Esta ladrando");
+        System.out.println("Esta cacareando");
     }
 }

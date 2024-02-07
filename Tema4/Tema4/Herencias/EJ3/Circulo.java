@@ -1,10 +1,10 @@
 package Tema4.Herencias.EJ3;
 
-class circulo extends Figura2D{
+class Circulo extends Figura2D{
     private double diametro;
     private double radio;
 
-    public circulo(double diametro, double radio) {
+    public Circulo(double diametro, double radio) {
         this.diametro = diametro;
         this.radio = radio;
     }

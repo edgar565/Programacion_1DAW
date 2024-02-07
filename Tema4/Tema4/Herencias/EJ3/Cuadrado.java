@@ -1,8 +1,8 @@
 package Tema4.Herencias.EJ3;
 
-class cuadrado extends rectangulo{
+class Cuadrado extends Rectangulo {
     private double lado;
-    public cuadrado(double lado) {
+    public Cuadrado(double lado) {
         super(lado, lado);
         this.lado = lado;
     }

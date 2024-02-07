@@ -1,6 +1,6 @@
 package Tema4.Herencias.EJ1;
 
-class Turismo extends vehiculo{
+class Turismo extends Vehiculo {
     private int numero_Plazas;
     private tipoUso tipo;
      enum tipoUso{

@@ -2,27 +2,27 @@ package Tema4.Herencias.EJ2;
 
 public class main {
     public static void main(String[] args) {
-        perro perro = new perro();
+        Perro perro = new Perro();
         perro.comer();
         perro.dormir();
         perro.hacerRuido();
 
-        gato gato = new gato();
+        Gato gato = new Gato();
         gato.comer();
         gato.dormir();
         gato.hacerRuido();
 
-        gallina gallina = new gallina();
+        Gallina gallina = new Gallina();
         gallina.comer();
         gallina.dormir();
         gallina.hacerRuido();
 
-        conejo conejo = new conejo();
+        Conejo conejo = new Conejo();
         conejo.comer();
         conejo.dormir();
         conejo.hacerRuido();
 
-        caballo caballo = new caballo();
+        Caballo caballo = new Caballo();
         caballo.comer();
         caballo.dormir();
         caballo.hacerRuido();
