@@ -1,8 +1,8 @@
-package Tema4.Herencias;
+package Tema4.Herencias.EJ1;
 
 class ciclomotor extends vehiculo{
     private int cilindrada;
-    public boolean carnet(){
+    public boolean necesitaCarnet(){
         boolean necesitaCarnet= false;
         if (cilindrada > 45){
             necesitaCarnet = true;

@@ -1,4 +1,4 @@
-package Tema4.Herencias;
+package Tema4.Herencias.EJ1;
 
 class camion extends vehiculo {
     private int pesoMax;

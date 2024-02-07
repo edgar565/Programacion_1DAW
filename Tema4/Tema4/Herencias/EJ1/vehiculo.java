@@ -1,4 +1,4 @@
-package Tema4.Herencias;
+package Tema4.Herencias.EJ1;
 
 abstract class vehiculo {
     private String marca;
