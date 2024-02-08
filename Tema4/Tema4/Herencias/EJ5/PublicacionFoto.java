@@ -12,6 +12,10 @@ public class PublicacionFoto implements IPublicacion,IAbrirPublicacion{
 
     }
 
-    public PublicacionFoto() {
+
+
+    @Override
+    public void abrir() {
+        System.out.print("Estas abriendo la imagen");
     }
 }

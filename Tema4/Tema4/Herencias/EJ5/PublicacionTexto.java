@@ -12,6 +12,4 @@ class PublicacionTexto implements IPublicacion {
         System.out.print("Estas compartiendo el texto seleccionando");
     }
 
-    public PublicacionTexto() {
-    }
 }
