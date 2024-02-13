@@ -10,5 +10,7 @@ public abstract class Ficha {
         this.titulo = titulo;
     }
 
-    public abstract String toString();
+    public String toString(){
+        return "Número: " + numero + "\nTítulo: " + titulo + " " ;
+    };
 }

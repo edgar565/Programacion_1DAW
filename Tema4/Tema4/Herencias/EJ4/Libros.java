@@ -12,7 +12,6 @@ class Libros extends Ficha{
 
     @Override
     public String toString() {
-        return "Número: " + + "\nTítulo: " +  + "\nAutor: " + autor + "\nEditorial: " + editorial;
+        return super.toString() + "\nAutor: " + autor + "\nEditorial: " + editorial;
     }
-
 }

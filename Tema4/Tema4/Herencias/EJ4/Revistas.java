@@ -12,7 +12,7 @@ class Revistas extends Ficha{
 
     @Override
     public String toString() {
-        return "Número: " + + "\nTítulo: " +  + "\nNúmero publicación: " + numero_publicacion + "\nAño de publicación: " + ano_publicacion;
+        return super.toString() + "\nNúmero publicación: " + numero_publicacion + "\nAño de publicación: " + ano_publicacion;
     }
 
 }

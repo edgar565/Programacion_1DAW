@@ -8,8 +8,8 @@ public class main {
         camion.setPeligrosa(false);
         camion.setPesoMax(125);
 
-        Turismo turismo = new Turismo("tesla","s","1234-KWS","0123456789",9, Turismo.tipoUso.PROFESIONAL);
-        turismo.setTipo(Turismo.tipoUso.PARTICULAR);
+        Turismo turismo = new Turismo("tesla","s","1234-KWS","0123456789",9, Turismo.TipoUso.PROFESIONAL);
+        turismo.setTipo(Turismo.TipoUso.PARTICULAR);
 
         Ciclomotor ciclomotor = new Ciclomotor("tesla","s","1234-KWS","0123456789", 115);
         ciclomotor.necesitaCarnet();
