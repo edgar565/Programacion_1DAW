@@ -16,4 +16,7 @@ class AtaqueBolaFuego extends Ataque{
         System.out.println("El daño infringido mágico es:  Y el daño infringido físico es: ");
         return new DañoInfligido();
     }
+
+    public AtaqueBolaFuego() {
+    }
 }

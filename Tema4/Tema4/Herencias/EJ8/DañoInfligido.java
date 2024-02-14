@@ -7,4 +7,9 @@ public class DañoInfligido {
     public int danoFisico(){
         return 15;
     }
+    public DañoInfligido() {
+    }
+    String toString(int danoMagico, int danoFisico){
+        return "Daño mágico: " + danoMagico + "\nDaño físico: " + danoFisico;
+    }
 }

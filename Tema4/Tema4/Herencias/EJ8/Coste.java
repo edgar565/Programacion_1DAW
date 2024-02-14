@@ -7,4 +7,10 @@ public class Coste {
     public int costeEsfuerzoFisico(){
         return 65;
     }
+
+    public Coste() {
+    }
+    String toString(int costeMana, int costeEsfuerzoFisico){
+        return "Coste Mana: " + costeMana + "\nCoste Esfuerzo Fisico: " + costeEsfuerzoFisico;
+    }
 }
