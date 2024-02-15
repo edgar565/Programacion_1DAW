@@ -1,6 +1,6 @@
 package Tema4.Herencias.EJ8;
 
-class AtaqueEspadazo extends Ataque {
+class AtaqueEspadazo implements IAtaqueAvanzado {
     @Override
     public void lanzar() {
         System.out.println("Acabas de lanzar un ataque mágico y físico");
@@ -13,7 +13,7 @@ class AtaqueEspadazo extends Ataque {
 
     @Override
     public DañoInfligido danoInfligido() {
-        System.out.println("El daño infringido mágico es:  Y el daño infringido físico es: ");
+        System.out.println("El daño infringido es: ");
         return new DañoInfligido();
     }
 
