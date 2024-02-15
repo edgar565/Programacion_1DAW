@@ -1,38 +1,56 @@
 package Tema4.Polimorfismo.EJ1;
+import Tema4.Polimorfismo.EJ2.Avion;
+import Tema4.Polimorfismo.EJ2.Barco;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 public class ITV {
-    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         Random random = new Random();
         int tipoVehiculo = 1;
         ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+        int numPista = 0;
+        int numCanal = 0;
+        int[] arrayMatricula;
+        char[] arrayLetraMatricula;
         while (tipoVehiculo != 0){
-            tipoVehiculo = random.nextInt(0,3);
-            int[] matricula = new int[4];
+            tipoVehiculo = random.nextInt(1,3);
+             arrayMatricula = new int[4];
             for (int x = 0; x < 4; x++){
-                matricula[x] = random.nextInt(0,9);
+                arrayMatricula[x] = random.nextInt(0,9);
             }
-            char[] letraMatricula = new char[3];
+            int matricula = arrayAInt(arrayMatricula);
+            arrayLetraMatricula = new char[3];
             for (int i = 0; i < 3; i++) {
-                letraMatricula[i] = (char) (random.nextInt(26) + 'A');
+                arrayLetraMatricula[i] = (char) (random.nextInt(26) + 'A');
             }
-            MomentoEntrada fecha = momentoEntrada();
+            String letraMatricula = new String(arrayLetraMatricula);
+            Date fechaHoraActual = new Date();
             Vehiculo nuevo = null;
             switch (tipoVehiculo){
                 case 1:
                     System.out.println("### Creando la ficha del TURISMO ###");
-                    nuevo = new Turismo(letraMatricula, matricula, fecha);
+                    nuevo = new Turismo(letraMatricula, matricula, fechaHoraActual);
                     break;
                 case 2:
                     System.out.println("### Creando la ficha del CAMION ###");
-                    nuevo =new Camion(letraMatricula, matricula, fecha);
+                    nuevo =new Camion(letraMatricula, matricula, fechaHoraActual);
                     break;
                 case 3:
                     System.out.println("### Creando la ficha del CICLOMOTOR ###");
-                    nuevo = new Ciclomotor(letraMatricula, matricula, fecha);
+                    nuevo = new Ciclomotor(letraMatricula, matricula, fechaHoraActual);
+                    break;
+                case 4:
+                    System.out.println("### Creando la ficha del AVION ###");
+                    String pistaAterrizaje = "P" + numPista;
+                    nuevo = new Avion(letraMatricula, matricula, fechaHoraActual, pistaAterrizaje);
+                    numPista++;
+                    break;
+                case 5:
+                    System.out.println("### Creando la ficha del BARCO ###");
+                    String canal = "C" + numCanal;
+                    nuevo = new Barco(letraMatricula, matricula, fechaHoraActual, canal);
+                    numCanal++;
                     break;
             }
             vehiculos.add(nuevo);
@@ -41,20 +59,11 @@ public class ITV {
             System.out.println(v);
         }
     }
-    public static MomentoEntrada momentoEntrada(){
-
-        System.out.println("Porfavor introduce la fecha actual");
-        System.out.print("Dia: ");
-        int dia = scanner.nextInt();
-        System.out.print("Mes: ");
-        int mes = scanner.nextInt();
-        System.out.print("Año: ");
-        int año = scanner.nextInt();
-        System.out.print("Hora: ");
-        int hora = scanner.nextInt();
-        System.out.print("Minuto: ");
-        int minuto = scanner.nextInt();
-        MomentoEntrada momentoEntrada = new MomentoEntrada(dia,mes,año,hora,minuto);
-        return momentoEntrada;
+    public static int arrayAInt(int[] array) {
+        int numero = 0;
+        for (int i = 0; i < array.length; i++) {
+            numero = numero * 10 + array[i];
+        }
+        return numero;
     }
 }

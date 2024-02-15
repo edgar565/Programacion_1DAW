@@ -2,7 +2,7 @@ package Tema4.Polimorfismo.EJ1;
 
 public class Ciclomotor extends Vehiculo{
 
-    public Ciclomotor(char[] letraMatricula, int[] matricula, MomentoEntrada momentoEntrada) {
+    public Ciclomotor(String letraMatricula, int matricula, Date momentoEntrada) {
         super(letraMatricula, matricula, momentoEntrada);
     }
 }
