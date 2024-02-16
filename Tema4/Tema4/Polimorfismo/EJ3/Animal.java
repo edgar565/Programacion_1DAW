@@ -1,9 +1,11 @@
 package Tema4.Polimorfismo.EJ3;
 
+import java.util.Random;
+
 public abstract class Animal {
 
-    public void hacerRuido(){
-        System.out.println("Esta haciendo ruido");
-    }
+    public abstract void hacerRuido();
+
+    public abstract boolean seva();
 
 }
