@@ -1,4 +1,12 @@
 package Tema4.Polimorfismo.EJ4;
 
-public class Revista {
+public class Revista extends Producto {
+    public Revista(int referencia, String titulo) {
+        super( "Revista", referencia, titulo);
+    }
+
+    @Override
+    public String getInfo() {
+        return "Tipo: " + tipo + ", Título: " + titulo + ", Referencia: " + referencia;
+    }
 }

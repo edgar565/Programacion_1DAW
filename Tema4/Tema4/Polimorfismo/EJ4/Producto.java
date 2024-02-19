@@ -1,8 +1,12 @@
 package Tema4.Polimorfismo.EJ4;
-
-public class Producto {
+abstract class Producto {
     int referencia;
-    int añoPublicación;
     String titulo;
-
+    String tipo;
+    public Producto(String tipo, int referencia, String titulo) {
+        this.referencia = referencia;
+        this.tipo = tipo;
+        this.titulo = titulo;
+    }
+    public abstract String getInfo();
 }
