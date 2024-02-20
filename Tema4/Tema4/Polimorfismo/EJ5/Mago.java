@@ -1,6 +1,9 @@
 package Tema4.Polimorfismo.EJ5;
 
-public class Mago extends Combatiente implements ICombatiente{
+import java.util.Random;
+
+public class Mago extends Combatiente{
+    Random random = new Random();
 
     public Mago(int vida) {
         super(vida);
@@ -8,15 +11,21 @@ public class Mago extends Combatiente implements ICombatiente{
 
     @Override
     public Ataque atacar() {
-        int cantidad = vida / 2;
+        int num = random.nextInt(1,10);
+        int cantidad = 0;
+        if (vida >= 30){
+            cantidad = vida * 3;
+        }else if (vida <= 20){
+            cantidad = (vida * 2) - num;
+        }
         Ataque ataque = new Ataque(cantidad, Ataque.TipoDano.MAGICO, Ataque.TipoAtaque.A_DISTANCIA);
 
         return ataque;
     }
     @Override
     public void defender(Ataque ataque) {
-
         if (!(ataque.getTipoDano() == Ataque.TipoDano.FISICO) && !(ataque.getTipoAtaque() == Ataque.TipoAtaque.CUERPO_A_CUERPO)) {
+
         }
     }
 

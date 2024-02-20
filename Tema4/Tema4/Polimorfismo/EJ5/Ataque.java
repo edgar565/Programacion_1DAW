@@ -22,7 +22,11 @@ class Ataque{
         return cantidad;
     }
 
-    public abstract TipoAtaque getTipoAtaque();
+    public TipoDano getTipoDano() {
+        return tipoDano;
+    }
 
-    public abstract TipoDano getTipoDano();
+    public TipoAtaque getTipoAtaque() {
+        return tipoAtaque;
+    }
 }
