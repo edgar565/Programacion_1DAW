@@ -1,6 +1,6 @@
 package Tema4.Polimorfismo.EJ5;
 
-abstract class Ataque{
+class Ataque{
     protected int cantidad;
     enum TipoDano{
         FISICO, MAGICO

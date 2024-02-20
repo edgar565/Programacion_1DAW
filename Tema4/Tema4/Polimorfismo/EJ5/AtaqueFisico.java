@@ -16,6 +16,4 @@ public class AtaqueFisico extends Ataque{
     public TipoDano getTipoDano() {
         return tipoDano;
     }
-
-
 }

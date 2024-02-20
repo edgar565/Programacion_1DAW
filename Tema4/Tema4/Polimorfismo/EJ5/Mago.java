@@ -8,12 +8,16 @@ public class Mago extends Combatiente implements ICombatiente{
 
     @Override
     public Ataque atacar() {
-        return null;
-    }
+        int cantidad = vida / 2;
+        Ataque ataque = new Ataque(cantidad, Ataque.TipoDano.MAGICO, Ataque.TipoAtaque.A_DISTANCIA);
 
+        return ataque;
+    }
     @Override
-    public Ataque defender() {
-        return null;
+    public void defender(Ataque ataque) {
+
+        if (!(ataque.getTipoDano() == Ataque.TipoDano.FISICO) && !(ataque.getTipoAtaque() == Ataque.TipoAtaque.CUERPO_A_CUERPO)) {
+        }
     }
 
     @Override
