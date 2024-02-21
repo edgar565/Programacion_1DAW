@@ -28,6 +28,7 @@ public class PracticaCombateFunciones {
                 | |____| |  | | |    _| |_| |____ / /__ / ____ \\  | |____| |____  | |__| | |__| | |___| |__| | |__| |
                 |______|_|  |_|_|   |_____|______/_____/_/    \\_\\ |______|______|  \\____/ \\____/|______\\_____|\\____/\s""");
         System.out.println();
+
     }
     public static void jugador1() {
         System.out.println("""

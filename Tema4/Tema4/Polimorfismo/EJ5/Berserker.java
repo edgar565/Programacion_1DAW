@@ -25,10 +25,10 @@ public class Berserker extends Combatiente{
         int menosDano = random.nextInt(16,25);
         if (ataque.getTipoAtaque() == Ataque.TipoAtaque.A_DISTANCIA){
             ataque.cantidad = ataque.getCantidad() - masDano;
-            vida = ataque.cantidad;
+            vida =- ataque.cantidad;
         }else {
             ataque.cantidad = atacar().getCantidad() - menosDano;
-            vida = ataque.cantidad;
+            vida =- ataque.cantidad;
         }
     }
     @Override
