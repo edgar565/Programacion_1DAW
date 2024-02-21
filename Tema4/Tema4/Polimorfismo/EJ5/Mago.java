@@ -18,14 +18,20 @@ public class Mago extends Combatiente{
         }else if (vida <= 20){
             cantidad = (vida * 2) - num;
         }
-        Ataque ataque = new Ataque(cantidad, Ataque.TipoDano.MAGICO, Ataque.TipoAtaque.A_DISTANCIA);
-
+        Ataque ataque;
+        if (num == 1){
+            ataque = new Ataque(cantidad, Ataque.TipoDano.FISICO, Ataque.TipoAtaque.CUERPO_A_CUERPO);
+        }else {
+            ataque = new Ataque(cantidad, Ataque.TipoDano.MAGICO, Ataque.TipoAtaque.A_DISTANCIA);
+        }
         return ataque;
     }
     @Override
     public void defender(Ataque ataque) {
-        if (!(ataque.getTipoDano() == Ataque.TipoDano.FISICO) && !(ataque.getTipoAtaque() == Ataque.TipoAtaque.CUERPO_A_CUERPO)) {
-
+        if ((ataque.getTipoDano() == Ataque.TipoDano.FISICO) && (ataque.getTipoAtaque() == Ataque.TipoAtaque.CUERPO_A_CUERPO)) {
+            vida =- ataque.cantidad * 2;
+        } else {
+            vida =- ataque.cantidad;
         }
     }
 
