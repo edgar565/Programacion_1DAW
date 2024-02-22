@@ -80,7 +80,7 @@ public class Biblioteca {
 
     public void buscarProducto(String titulo) {
         for (Producto producto : productos) {
-            if (producto.titulo.equals(titulo)) {
+            if (producto.getTipo().equals(titulo)) {
                 System.out.println("Ítem encontrado:");
                 System.out.println(producto.getInfo());
                 return;
@@ -91,7 +91,7 @@ public class Biblioteca {
 
     public void eliminarProducto(String titulo) {
         for (Producto producto : productos) {
-            if (producto.titulo.equals(titulo)) {
+            if (producto.getTitulo().equals(titulo)) {
                 productos.remove(producto);
                 System.out.println("Producto eliminado exitosamente!");
                 return;

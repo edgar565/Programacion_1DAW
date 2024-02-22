@@ -7,6 +7,6 @@ public class Revista extends Producto {
 
     @Override
     public String getInfo() {
-        return "Tipo: " + tipo + ", Título: " + titulo + ", Referencia: " + referencia;
+        return "Tipo: " + getTipo() + ", Título: " + getTitulo() + ", Referencia: " + getReferencia();
     }
 }

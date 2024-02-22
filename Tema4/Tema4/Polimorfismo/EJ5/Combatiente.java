@@ -13,9 +13,7 @@ public class Combatiente implements ICombatiente {
 
     @Override
     public void defender(Ataque ataque) {
-
     }
-
     @Override
     public Boolean estaVivo() {
         return null;

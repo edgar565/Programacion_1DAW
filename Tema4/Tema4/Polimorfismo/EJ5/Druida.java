@@ -37,4 +37,7 @@ public class Druida implements ICombatiente{
         }
         return vivo;
     }
+    public String toString(){
+        return "Druida";
+    }
 }

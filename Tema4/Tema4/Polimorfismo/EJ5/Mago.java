@@ -43,4 +43,7 @@ public class Mago extends Combatiente{
         }
         return vivo;
     }
+    public String toString(){
+        return "Mago";
+    }
 }
