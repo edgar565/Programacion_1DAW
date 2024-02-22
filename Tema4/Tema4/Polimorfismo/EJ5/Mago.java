@@ -37,6 +37,10 @@ public class Mago extends Combatiente{
 
     @Override
     public Boolean estaVivo() {
-        return null;
+        boolean vivo = true;
+        if (vida <= 0) {
+            vivo = false;
+        }
+        return vivo;
     }
 }
