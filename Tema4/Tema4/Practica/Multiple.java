@@ -1,4 +1,23 @@
 package Tema4.Practica;
 
-public class Multiple {
+import java.util.ArrayList;
+
+public class Multiple extends Pregunta{
+    private ArrayList<String> opciones;
+    private char respuestaCorrecta;
+
+    public Multiple(String enunciado, ArrayList<String> opciones, char respuestaCorrecta) {
+        super(enunciado);
+        this.opciones = opciones;
+        this.respuestaCorrecta = respuestaCorrecta;
+    }
+    @Override
+    public boolean comprobarRespuesta(String respuesta) {
+        return respuesta.equalsIgnoreCase(String.valueOf(respuestaCorrecta));
+    }
+    public void mostrarOpciones() {
+        for (int i = 0; i < opciones.size(); i++) {
+            System.out.println((char)('a' + i) + ") " + opciones.get(i));
+        }
+    }
 }
