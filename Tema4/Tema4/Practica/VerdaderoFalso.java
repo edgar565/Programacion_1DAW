@@ -1,13 +1,17 @@
 package Tema4.Practica;
 
 public class VerdaderoFalso extends Pregunta{
-
-    public VerdaderoFalso(String enunciado) {
-        super(enunciado);
+    private boolean respuestaCorrecta;
+    public VerdaderoFalso(String enunciado, String regalo, boolean respuestaCorrecta) {
+        super(enunciado, regalo);
+        this.respuestaCorrecta = respuestaCorrecta;
     }
-
+    public VerdaderoFalso(String enunciado,boolean respuestaCorrecta) {
+        super(enunciado);
+        this.respuestaCorrecta = respuestaCorrecta;
+    }
     @Override
     public boolean comprobarRespuesta(String respuesta) {
-        return false;
+        return respuesta.equalsIgnoreCase(String.valueOf(respuestaCorrecta));
     }
 }

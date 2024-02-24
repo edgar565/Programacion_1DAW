@@ -1,10 +1,16 @@
 package Tema4.Practica;
 
-abstract class Pregunta implements IRespuesta{
+abstract class Pregunta {
     protected String enunciado;
-    public Pregunta(String enunciado) {
+    private String regalo;
+    public Pregunta(String enunciado, String regalo) {
         this.enunciado = enunciado;
+        this.regalo = regalo;
     }
+
+    public Pregunta(String enunciado) {
+    }
+
     public String getEnunciado() {
         return enunciado;
     }

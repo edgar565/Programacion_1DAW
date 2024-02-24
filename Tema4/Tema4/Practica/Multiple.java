@@ -5,8 +5,13 @@ import java.util.ArrayList;
 public class Multiple extends Pregunta{
     private ArrayList<String> opciones;
     private char respuestaCorrecta;
+    public Multiple(String enunciado, String regalo, ArrayList<String> opciones, char respuestaCorrecta) {
+        super(enunciado, regalo);
+        this.opciones = opciones;
+        this.respuestaCorrecta = respuestaCorrecta;
 
-    public Multiple(String enunciado, ArrayList<String> opciones, char respuestaCorrecta) {
+    }
+    public Multiple(String enunciado,ArrayList  opciones,char respuestaCorrecta) {
         super(enunciado);
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;
