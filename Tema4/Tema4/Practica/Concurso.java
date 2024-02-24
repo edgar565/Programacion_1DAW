@@ -8,10 +8,11 @@ public class Concurso {
     private static ArrayList<Pregunta> preguntas = new ArrayList<>();
     private static ArrayList<Regalo> regalos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
+    private static Pregunta[][] cuadriculaPreguntas;
+    private static int[][] cuadricula = new int[5][5];
 
     public static void main(String[] args) {
         Random random = new Random();
-        Pregunta[][] cuadriculaPreguntas = new Pregunta[5][5];
         crearRegalos();
         crearConcursante();
         menu();
@@ -24,6 +25,31 @@ public class Concurso {
             fila = scanner.nextInt();
             System.out.print("Columna: ");
             columna = scanner.nextInt();
+        }
+    }
+    public static void crearCuadricula(int opcion){
+        switch (opcion){
+            case 1:
+                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
+                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
+                        cuadriculaPreguntas[i][j] = new Abierta((Abierta) preguntas.get(i), regalos.get(i));
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
+                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
+                        cuadriculaPreguntas[i][j] = new Multiple((Multiple) preguntas.get(i), regalos.get(i));
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
+                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
+                        cuadriculaPreguntas[i][j] = new VerdaderoFalso((VerdaderoFalso) preguntas.get(i), regalos.get(i));
+                    }
+                }
+                break;
         }
     }
     public static void crearRegalos(){
@@ -70,14 +96,17 @@ public class Concurso {
             case 1:
                 System.out.println("Has elegido preguntas abiertas");
                 crearPreguntasAbiertas();
+                crearCuadricula(opcion);
                 break;
             case 2:
                 System.out.println("Has elegido preguntas multiples");
                 crearPreguntasMultiples();
+                crearCuadricula(opcion);
                 break;
             case 3:
                 System.out.println("Has elegido preguntas de verdadero o falso");
                 crearPreguntasVerdaderoFalso();
+                crearCuadricula(opcion);
                 break;
         }
     }

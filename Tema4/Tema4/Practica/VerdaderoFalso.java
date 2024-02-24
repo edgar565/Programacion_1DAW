@@ -2,9 +2,8 @@ package Tema4.Practica;
 
 public class VerdaderoFalso extends Pregunta{
     private boolean respuestaCorrecta;
-    public VerdaderoFalso(String enunciado, String regalo, boolean respuestaCorrecta) {
-        super(enunciado, regalo);
-        this.respuestaCorrecta = respuestaCorrecta;
+    public VerdaderoFalso(VerdaderoFalso pregunta, Regalo regalo) {
+        super(pregunta, regalo);
     }
     public VerdaderoFalso(String enunciado,boolean respuestaCorrecta) {
         super(enunciado);

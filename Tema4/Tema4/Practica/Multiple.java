@@ -1,15 +1,14 @@
 package Tema4.Practica;
 
+import jdk.jshell.spi.SPIResolutionException;
+
 import java.util.ArrayList;
 
 public class Multiple extends Pregunta{
     private ArrayList<String> opciones;
     private char respuestaCorrecta;
-    public Multiple(String enunciado, String regalo, ArrayList<String> opciones, char respuestaCorrecta) {
-        super(enunciado, regalo);
-        this.opciones = opciones;
-        this.respuestaCorrecta = respuestaCorrecta;
-
+    public Multiple(Multiple pregunta, Regalo regalo) {
+        super(pregunta, regalo);
     }
     public Multiple(String enunciado,ArrayList  opciones,char respuestaCorrecta) {
         super(enunciado);
