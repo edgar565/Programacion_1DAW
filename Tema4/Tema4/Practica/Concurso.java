@@ -8,7 +8,7 @@ public class Concurso {
     private static ArrayList<Pregunta> preguntas = new ArrayList<>();
     private static ArrayList<Regalo> regalos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    private static Pregunta[][] cuadriculaPreguntas;
+    private static Pregunta[][] cuadriculaPreguntas = new Pregunta[5][5];
     private static int[][] cuadricula = new int[5][5];
 
     public static void main(String[] args) {
@@ -86,12 +86,15 @@ public class Concurso {
         return concursante;
     }
     public static void menu(){
-        System.out.println("Opciones preguntas:\n" +
-                "1. Abiertas\n" +
-                "2. Multiple\n" +
-                "3. Verdadero o falso\n" +
-                "Elige una opción: ");
-        int opcion = scanner.nextInt();
+        int opcion;
+        do {
+            System.out.println("Opciones preguntas:\n" +
+                    "1. Abiertas\n" +
+                    "2. Multiple\n" +
+                    "3. Verdadero o falso\n" +
+                    "Elige una opción: ");
+            opcion = scanner.nextInt();
+        } while (opcion > 3 && opcion < 1);
         switch (opcion){
             case 1:
                 System.out.println("Has elegido preguntas abiertas");
