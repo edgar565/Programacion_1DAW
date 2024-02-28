@@ -15,6 +15,11 @@ public class Multiple extends Pregunta{
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;
     }
+
+    public Multiple(String enunciado,Pregunta pregunta) {
+        super(enunciado);
+    }
+
     @Override
     public boolean comprobarRespuesta(String respuesta) {
         return respuesta.equalsIgnoreCase(String.valueOf(respuestaCorrecta));

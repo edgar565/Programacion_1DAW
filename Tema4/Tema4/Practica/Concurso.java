@@ -10,22 +10,11 @@ public class Concurso {
     static Scanner scanner = new Scanner(System.in);
     private static Pregunta[][] cuadriculaPreguntas = new Pregunta[5][5];
     private static int[][] cuadricula = new int[5][5];
-
     public static void main(String[] args) {
-        Random random = new Random();
+        crearCuadricula();
         crearRegalos();
         crearConcursante();
         menu();
-        int fila;
-        int columna;
-        while (true){
-            printMatrix(cuadriculaPreguntas);
-            System.out.println("Elige una posición (fila y columna) para responder la pregunta:");
-            System.out.print("Fila: ");
-            fila = scanner.nextInt();
-            System.out.print("Columna: ");
-            columna = scanner.nextInt();
-        }
     }
     public static void crearCuadricula(int opcion){
         switch (opcion){
@@ -88,7 +77,7 @@ public class Concurso {
     public static void menu(){
         int opcion;
         do {
-            System.out.println("Opciones preguntas:\n" +
+            System.out.print("Opciones preguntas:\n" +
                     "1. Abiertas\n" +
                     "2. Multiple\n" +
                     "3. Verdadero o falso\n" +
@@ -111,6 +100,37 @@ public class Concurso {
                 crearPreguntasVerdaderoFalso();
                 crearCuadricula(opcion);
                 break;
+        }
+        int numPregunta;
+        while (true){
+            printMatrix();
+            System.out.print("Elige numero para responder la pregunta:");
+            numPregunta = scanner.nextInt();
+            System.out.println(preguntas.get(numPregunta - 1).getEnunciado());
+            switch (opcion){
+                case 1:
+                    System.out.print("Porfavor conteste a la pregunta:  ");
+                    String respuesta = scanner.next();
+                    preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta);
+                    break;
+                case 2:
+                    preguntas.get(numPregunta - 1)  ;
+                    Multiple multiple = new Multiple(preguntas.get(numPregunta - 1).getEnunciado() ,preguntas.get(numPregunta - 1));
+                    multiple.mostrarOpciones();
+                    System.out.print("Porfavor conteste a la pregunta:  ");
+                    respuesta = scanner.next();
+                    if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta) == true){
+                        System.out.println("Enorabuena ha ganado!!");
+                    }else if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta) == false){
+                        System.out.println("Lo siento!! Ha perdido la partida");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Porfavor conteste a la pregunta:  ");
+                    respuesta = scanner.next();
+                    preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta);
+                    break;
+            }
         }
     }
     public static void crearPreguntasAbiertas(){
@@ -294,14 +314,22 @@ public class Concurso {
         opciones25.add("Alien");
         opciones25.add("Predator");
         preguntas.add(new Multiple("¿Cuál es el título original de la película 'Tiburón'?", opciones25, 'a'));
-
     }
-    public static void printMatrix(Pregunta[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print(matrix[i][j] + "\t");
+    public static void printMatrix() {
+        for (int i = 0; i < cuadricula.length; i++) {
+            for (int j = 0; j < cuadricula[i].length; j++) {
+                System.out.print(cuadricula[i][j] + "\t");
             }
             System.out.println();
+        }
+    }
+    public static void crearCuadricula(){
+        int num = 1;
+        for (int i = 0; i < cuadricula.length; i++) {
+            for (int j = 0; j < cuadricula[i].length; j++) {
+                cuadricula[i][j] = num;
+                num++;
+            }
         }
     }
 }
