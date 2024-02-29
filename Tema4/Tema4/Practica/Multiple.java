@@ -7,9 +7,6 @@ import java.util.ArrayList;
 public class Multiple extends Pregunta{
     private ArrayList<String> opciones;
     private char respuestaCorrecta;
-    public Multiple(Multiple pregunta, Regalo regalo) {
-        super(pregunta, regalo);
-    }
     public Multiple(String enunciado,ArrayList  opciones,char respuestaCorrecta) {
         super(enunciado);
         this.opciones = opciones;
@@ -25,8 +22,12 @@ public class Multiple extends Pregunta{
         return respuesta.equalsIgnoreCase(String.valueOf(respuestaCorrecta));
     }
     public void mostrarOpciones() {
-        for (int i = 0; i < opciones.size(); i++) {
-            System.out.println((char)('a' + i) + ") " + opciones.get(i));
+        if (opciones != null) {
+            for (int i = 0; i < opciones.size(); i++) {
+                System.out.println((i + 1) + ". " + opciones.get(i));
+            }
+        } else {
+            System.out.println("No se han proporcionado opciones para esta pregunta.");
         }
     }
 }

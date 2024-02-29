@@ -22,4 +22,7 @@ public class Concursante {
     public String toString(){
         return nombre + " tiene: " + puntos;
     }
+    public void setPremio(Regalo regalo) {
+        System.out.println("¡Felicidades! Has ganado: " + regalo.getRegalo());
+    }
 }

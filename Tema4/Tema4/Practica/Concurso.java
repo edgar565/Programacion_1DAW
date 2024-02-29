@@ -1,6 +1,7 @@
 package Tema4.Practica;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,37 +9,20 @@ public class Concurso {
     private static ArrayList<Pregunta> preguntas = new ArrayList<>();
     private static ArrayList<Regalo> regalos = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    private static Pregunta[][] cuadriculaPreguntas = new Pregunta[5][5];
+    private static Desafio[][] cuadriculaPreguntas = new Desafio[5][5];
     private static int[][] cuadricula = new int[5][5];
+    private static Concursante concursante;
     public static void main(String[] args) {
         crearCuadricula();
         crearRegalos();
         crearConcursante();
         menu();
     }
-    public static void crearCuadricula(int opcion){
-        switch (opcion){
-            case 1:
-                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
-                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
-                        cuadriculaPreguntas[i][j] = new Abierta((Abierta) preguntas.get(i), regalos.get(i));
-                    }
-                }
-                break;
-            case 2:
-                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
-                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
-                        cuadriculaPreguntas[i][j] = new Multiple((Multiple) preguntas.get(i), regalos.get(i));
-                    }
-                }
-                break;
-            case 3:
-                for (int i = 0; i < cuadriculaPreguntas.length; i++) {
-                    for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
-                        cuadriculaPreguntas[i][j] = new VerdaderoFalso((VerdaderoFalso) preguntas.get(i), regalos.get(i));
-                    }
-                }
-                break;
+    public static void introducirDatosCuadricula(){
+        for (int i = 0; i < cuadriculaPreguntas.length; i++) {
+            for (int j = 0; j < cuadriculaPreguntas[i].length; j++) {
+                cuadriculaPreguntas[i][j] = new Desafio(preguntas.get(i), regalos.get(i));
+            }
         }
     }
     public static void crearRegalos(){
@@ -71,7 +55,7 @@ public class Concurso {
     public static Concursante crearConcursante(){
         System.out.print("Porfavor introduce tu nombre:");
         String nombre = scanner.next();
-        Concursante concursante = new Concursante(nombre);
+        concursante = new Concursante(nombre);
         return concursante;
     }
     public static void menu(){
@@ -84,51 +68,43 @@ public class Concurso {
                     "Elige una opción: ");
             opcion = scanner.nextInt();
         } while (opcion > 3 && opcion < 1);
+        System.out.println(" ");
         switch (opcion){
             case 1:
                 System.out.println("Has elegido preguntas abiertas");
                 crearPreguntasAbiertas();
-                crearCuadricula(opcion);
                 break;
             case 2:
                 System.out.println("Has elegido preguntas multiples");
                 crearPreguntasMultiples();
-                crearCuadricula(opcion);
                 break;
             case 3:
                 System.out.println("Has elegido preguntas de verdadero o falso");
                 crearPreguntasVerdaderoFalso();
-                crearCuadricula(opcion);
                 break;
         }
+        introducirDatosCuadricula();
         int numPregunta;
         while (true){
             printMatrix();
-            System.out.print("Elige numero para responder la pregunta:");
+            System.out.print("Elige un número para responder la pregunta:");
             numPregunta = scanner.nextInt();
-            System.out.println(preguntas.get(numPregunta - 1).getEnunciado());
+            System.out.println(Arrays.deepToString(cuadriculaPreguntas));
             switch (opcion){
-                case 1:
+                case 1,3:
                     System.out.print("Porfavor conteste a la pregunta:  ");
                     String respuesta = scanner.next();
                     preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta);
                     break;
                 case 2:
-                    preguntas.get(numPregunta - 1)  ;
-                    Multiple multiple = new Multiple(preguntas.get(numPregunta - 1).getEnunciado() ,preguntas.get(numPregunta - 1));
-                    multiple.mostrarOpciones();
                     System.out.print("Porfavor conteste a la pregunta:  ");
                     respuesta = scanner.next();
-                    if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta) == true){
-                        System.out.println("Enorabuena ha ganado!!");
-                    }else if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta) == false){
-                        System.out.println("Lo siento!! Ha perdido la partida");
-                    }
-                    break;
-                case 3:
-                    System.out.print("Porfavor conteste a la pregunta:  ");
-                    respuesta = scanner.next();
-                    preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta);
+                    if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta)) {
+                    System.out.println("¡Enhorabuena! Has ganado.");
+                    concursante.setPremio(regalos.get(numPregunta - 1));
+                } else {
+                    System.out.println("Lo siento, respuesta incorrecta.");
+                }
                     break;
             }
         }
