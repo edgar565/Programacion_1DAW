@@ -2,9 +2,6 @@ package Tema4.Practica;
 
 public class Abierta extends Pregunta{
     private String respuestaCorrecta;
-    public Abierta(Abierta pregunta, Regalo regalo) {
-        super(pregunta,regalo);
-    }
     public Abierta(String enunciado,String respuestaCorrecta) {
         super(enunciado);
         this.respuestaCorrecta = respuestaCorrecta;
@@ -12,5 +9,8 @@ public class Abierta extends Pregunta{
     @Override
     public boolean comprobarRespuesta(String respuesta) {
         return respuesta.equalsIgnoreCase(String.valueOf(respuestaCorrecta));
+    }
+    public String toString(){
+        return enunciado;
     }
 }

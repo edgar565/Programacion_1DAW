@@ -89,12 +89,36 @@ public class Concurso {
             printMatrix();
             System.out.print("Elige un número para responder la pregunta:");
             numPregunta = scanner.nextInt();
-            System.out.println(Arrays.deepToString(cuadriculaPreguntas));
+            int i = 0, j = 0;
+            if (numPregunta <= 10 && numPregunta >= 6){
+                i = 1;
+            } else if (numPregunta <= 15 && numPregunta >=11) {
+                i = 2;
+            } else if (numPregunta <= 20 && numPregunta >= 16){
+                i = 3;
+            } else if (numPregunta <= 25 && numPregunta >= 21) {
+                i = 4;
+            }
+            if (numPregunta == 2 || numPregunta == 7 || numPregunta == 12 || numPregunta == 17 || numPregunta == 22){
+                j = 1;
+            } else if (numPregunta == 3 || numPregunta == 8 || numPregunta == 13 || numPregunta == 18 || numPregunta == 23) {
+                j = 2;
+            } else if (numPregunta == 4 || numPregunta == 9 || numPregunta == 14 || numPregunta == 19 || numPregunta == 24) {
+                j = 3;
+            } else if (numPregunta == 5 || numPregunta == 10 || numPregunta == 15 || numPregunta == 20 || numPregunta == 25) {
+                j = 4;
+            }
+            System.out.println((cuadriculaPreguntas[i][j]).toString().toString());
             switch (opcion){
                 case 1,3:
                     System.out.print("Porfavor conteste a la pregunta:  ");
                     String respuesta = scanner.next();
-                    preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta);
+                    if (preguntas.get(numPregunta - 1).comprobarRespuesta(respuesta)) {
+                        System.out.println("¡Enhorabuena! Has ganado.");
+                        concursante.setPremio(regalos.get(numPregunta - 1));
+                    } else {
+                        System.out.println("Lo siento, respuesta incorrecta.");
+                    }
                     break;
                 case 2:
                     System.out.print("Porfavor conteste a la pregunta:  ");

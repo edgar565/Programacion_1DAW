@@ -13,9 +13,6 @@ public class Multiple extends Pregunta{
         this.respuestaCorrecta = respuestaCorrecta;
     }
 
-    public Multiple(String enunciado,Pregunta pregunta) {
-        super(enunciado);
-    }
 
     @Override
     public boolean comprobarRespuesta(String respuesta) {
@@ -29,5 +26,8 @@ public class Multiple extends Pregunta{
         } else {
             System.out.println("No se han proporcionado opciones para esta pregunta.");
         }
+    }
+    public String toString(){
+        return enunciado + opciones;
     }
 }
