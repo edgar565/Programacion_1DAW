@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Set;
 public class ListaCompra {
     static Scanner scanner = new Scanner(System.in);
-    static Set<String> listaCompra = new HashSet<>();
+    private static Set<String> listaCompra = new HashSet<>();
     public static void main(String[] args) {
         int menuOpcion;
         do {
@@ -19,7 +19,7 @@ public class ListaCompra {
         }
     }
     public static int menu(){
-        int menuOpcion = 0;
+        int menuOpcion;
         do {
             System.out.print("0. No añadir mas productos\n" +
                     "1. Añadir un proucto\n" +

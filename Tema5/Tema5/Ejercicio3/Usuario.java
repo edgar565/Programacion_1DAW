@@ -10,4 +10,8 @@ public class Usuario {
         this.dni = dni;
         this.edad = edad;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
