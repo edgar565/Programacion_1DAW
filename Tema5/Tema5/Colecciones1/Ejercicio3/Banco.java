@@ -1,7 +1,4 @@
-package Tema5.Ejercicio3;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
+package Tema5.Colecciones1.Ejercicio3;
 
 public class Banco {
     public static void main(String[] args) {

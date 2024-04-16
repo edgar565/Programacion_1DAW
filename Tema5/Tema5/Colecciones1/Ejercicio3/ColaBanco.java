@@ -1,10 +1,9 @@
-package Tema5.Ejercicio3;
+package Tema5.Colecciones1.Ejercicio3;
 
 import java.util.LinkedList;
 
 public class ColaBanco {
     private LinkedList<Usuario> cola = new LinkedList<>();
-
     public ColaBanco() {
         cola = new LinkedList<>();
     }
@@ -12,7 +11,6 @@ public class ColaBanco {
         cola.add(usuario);
         System.out.println("Usuario " + usuario.getNombre() + " agregado a la cola.");
     }
-
     public Usuario atenderSiguiente() {
         if (!cola.isEmpty()) {
             Usuario usuarioAtendido = cola.removeFirst();
@@ -23,7 +21,6 @@ public class ColaBanco {
             return null;
         }
     }
-
     public void quitarUsuario(int posicion) {
         if (posicion >= 0 && posicion < cola.size()) {
             Usuario usuarioQuitado = cola.remove(posicion);
@@ -32,7 +29,6 @@ public class ColaBanco {
             System.out.println("Posición inválida.");
         }
     }
-
     public void mostrarCola() {
         System.out.println("Cola de usuarios:");
         for (Usuario usuario : cola) {
