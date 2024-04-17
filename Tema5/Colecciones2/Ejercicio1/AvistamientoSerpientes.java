@@ -10,11 +10,8 @@ public class AvistamientoSerpientes extends Avistamiento{
         this.especie = especie;
     }
 
-    public double getLongitud() {
-        return longitud;
-    }
-
-    public String getEspecie() {
-        return especie;
+    @Override
+    public String toString() {
+        return "### Serpiente ###\n" + super.toString() + "\n Longitud: " + longitud + "\n Especie: " + especie;
     }
 }

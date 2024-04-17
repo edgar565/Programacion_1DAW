@@ -17,4 +17,9 @@ public class AvistamientoManadasLobos extends Avistamiento{
     public String getObservaciones() {
         return observaciones;
     }
+
+    @Override
+    public String toString() {
+        return "### Manada de lobos ###\n" + super.toString() + "\n Número de lobos: " + numLobos + "\n Observaciones: " + observaciones;
+    }
 }

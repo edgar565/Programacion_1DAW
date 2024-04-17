@@ -9,12 +9,8 @@ public class AvistamientoPajaros extends Avistamiento {
         this.peso = peso;
         this.especie = especie;
     }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public String getEspecie() {
-        return especie;
+    @Override
+    public String toString() {
+        return "### Pajaro ###\n" + super.toString() + "\n Peso: " + peso + "\n Especie: " + especie;
     }
 }

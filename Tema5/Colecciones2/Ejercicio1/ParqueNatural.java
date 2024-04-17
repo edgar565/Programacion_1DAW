@@ -70,26 +70,45 @@ public class ParqueNatural {
                 int pesoPajaro = scanner.nextInt();
                 System.out.println("Introduce la especie del pájaro");
                 String especiePajaro = scanner.next();
-                AvistamientoPajaros pajaro = new AvistamientoPajaros(hora, longSerpiente,especieSerpiente);
+                AvistamientoPajaros pajaro = new AvistamientoPajaros(hora, pesoPajaro, especiePajaro);
                 avistamientos.add(pajaro);
                 break;
         }
     }
     public static void mostrar8(){
+        for (Avistamiento avistamiento : avistamientos) {
+            if (avistamiento.getHora() >= 8){
+                System.out.println(avistamiento);
+            }
+        }
 
     }
     public static void mostrar20a8(){
-
+        for (Avistamiento avistamiento : avistamientos) {
+            if (avistamiento.getHora() >= 20 || avistamiento.getHora() <= 8){
+                System.out.println(avistamiento);
+            }
+        }
     }
     public static void mostrarManadas(){
-
+        for (Avistamiento avistamiento : avistamientos) {
+            if (avistamiento instanceof AvistamientoManadasLobos){
+                System.out.println(avistamiento);
+            }
+        }
     }
     public static void mostrarSerpientes(){
-
+        for (Avistamiento avistamiento : avistamientos) {
+            if (avistamiento instanceof AvistamientoSerpientes){
+                System.out.println(avistamiento);
+            }
+        }
     }
     public static void mostrarPajaros(){
-
+        for (Avistamiento avistamiento : avistamientos) {
+            if (avistamiento instanceof AvistamientoPajaros){
+                System.out.println(avistamiento);
+            }
+        }
     }
-
-
 }
