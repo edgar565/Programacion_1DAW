@@ -14,26 +14,29 @@ public class AcortadorURL {
     menu();
     }
     public static void menu(){
-        System.out.print("1. Crear nueva dirección\n" +
-                "2. Mostrar la dirección\n" +
-                "3. Borrar la dirección\n" +
-                "4. Mostrar todas las direcciones\n" +
-                "Porfavor seleccione una opción: ");
-        int opcion = scanner.nextInt();
-        switch (opcion){
-            case 1:
-                crearDir();
-                break;
-            case 2:
-                buscarDir();
-                break;
-            case 3:
-                borrarDir();
-                break;
-            case 4:
-                mostrarDir();
-                break;
-        }
+        int opcion;
+        do {
+            System.out.print("\n1. Crear nueva dirección\n" +
+                    "2. Mostrar la dirección\n" +
+                    "3. Borrar la dirección\n" +
+                    "4. Mostrar todas las direcciones\n" +
+                    "Porfavor seleccione una opción: ");
+            opcion = scanner.nextInt();
+            switch (opcion){
+                case 1:
+                    crearDir();
+                    break;
+                case 2:
+                    buscarDir();
+                    break;
+                case 3:
+                    borrarDir();
+                    break;
+                case 4:
+                    mostrarDir();
+                    break;
+            }
+        }while (opcion != 55);
     }
     public static String generarClave() {
         char[] caracteres = new char[6];
@@ -44,12 +47,13 @@ public class AcortadorURL {
     }
     public static void crearDir(){
         String clave = generarClave();
-        System.out.print("Porfavor intoduce la URL");
+        System.out.print("Porfavor intoduce la URL: ");
         String url = scanner.next();
         System.out.print("Clave única: " + clave + "\n URL: " + url);
+        direcciones.put(clave,url);
     }
     public static void buscarDir(){
-        System.out.print("Porfavor intoduce la clave");
+        System.out.print("Porfavor intoduce la clave: ");
         String clave = scanner.next();
         if (direcciones.containsKey(clave)){
             System.out.println("La URL es: " + direcciones.get(clave));
@@ -58,7 +62,7 @@ public class AcortadorURL {
         }
     }
     public static void borrarDir(){
-        System.out.print("Porfavor intoduce la clave que deseas eliminar");
+        System.out.print("Porfavor intoduce la clave que deseas eliminar: ");
         String clave = scanner.next();
         if (direcciones.containsKey(clave)){
             direcciones.remove(clave);
