@@ -6,30 +6,16 @@ public class Proceso {
     private Random random = new Random();
     private double tiempoEjecucion;
     private String nombre;
+    private static int numero = 1;
     public Proceso() {
-        this.tiempoEjecucion = random.nextInt(1,4);
+        this.tiempoEjecucion = random.nextDouble(4) + 1;
         this.nombre = nombre();
     }
-
-    public Proceso(double tiempoEjecucion, String nombre) {
-        this.tiempoEjecucion = tiempoEjecucion;
-        this.nombre = nombre;
+    public void setTiempoEjecucion(double tiempo) {
+        this.tiempoEjecucion -= tiempo;
     }
 
-    public double getTiempoEjecucion() {
-        return tiempoEjecucion;
-    }
-    public void setTiempoEjecucion() {
-        this.tiempoEjecucion =- 0.2;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-
-    private String nombre(){
-        int numero = 1;
+    private static String nombre(){
         return  "p" + numero++;
     }
     public boolean terminado() {
