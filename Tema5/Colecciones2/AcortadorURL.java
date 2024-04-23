@@ -46,7 +46,7 @@ public class AcortadorURL {
         return new String(caracteres);
     }
     public static void crearDir(){
-        String clave = generarClave();
+        String clave = "https://edgar.link/" + generarClave();
         System.out.print("Porfavor intoduce la URL: ");
         String url = scanner.next();
         System.out.print("Clave única: " + clave + "\n URL: " + url);

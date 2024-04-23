@@ -29,7 +29,6 @@ public class Serpiente {
     }
     public void vivir() {
         if (!estaViva()) return;
-
         edad++;
         if (edad < 10) {
             crecer();
