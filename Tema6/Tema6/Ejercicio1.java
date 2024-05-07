@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
         try {
-            List<Path> rutas = Files.walk(Path.of("/tmp/niats")).toList();
+            List<Path> rutas = new java.util.ArrayList<>(Files.walk(Path.of("/tmp/niats/")).toList());
             for (Path ruta : rutas) {
                 if (Files.isRegularFile(ruta)) {
                     Path destino = Path.of("/tmp/niats/" + ruta.getFileName());
@@ -20,9 +23,13 @@ public class Ejercicio1 {
                     }
                 }
             }
-            for (Path dir :rutas){
-                if (!dir.equals("/tmp/niats")){
-                    Files.deleteIfExists(dir);
+            //Files.delete(Path.of("/tmp/niats/fff"));
+
+            Collections.reverse(rutas);
+            for (Path dir : rutas){
+                if (!dir.equals(Path.of("/tmp/niats")) && Files.isDirectory(dir)){
+                    System.out.println(dir.getFileName());
+                    Files.delete(dir);
                 }
             }
         } catch (IOException e) {
