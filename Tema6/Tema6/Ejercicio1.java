@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ejercicio1 {
@@ -19,6 +18,11 @@ public class Ejercicio1 {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                }
+            }
+            for (Path dir :rutas){
+                if (!dir.equals("/tmp/niats")){
+                    Files.deleteIfExists(dir);
                 }
             }
         } catch (IOException e) {
