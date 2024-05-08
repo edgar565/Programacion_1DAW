@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 
@@ -41,16 +38,16 @@ public class Aplicacion {
                 addFunkos();
                 break;
             case 2:
-                //saveFunkos(listado)
+                removeFunko();
                 break;
             case 3:
-
+                mostrarTodosFunkos();
                 break;
             case 4:
-
+                mostrarMediaFunkos();
                 break;
             case 5:
-
+                mostrarModelosFunkos();
                 break;
             case 6:
 
@@ -102,19 +99,65 @@ public class Aplicacion {
 
     public static void saveFunkos(List<Funko> funkos){
         try {
+            for (Funko funko : funkos){
+                Files.write(Path.of(path.toUri()), funko.toString().getBytes());
+
+            }
             /*
                 Borrar contenido fichero
+                for
+
                 for de la lista de funkos
                     funko -> Strings
 
                     Convertir funko -> Cadena
                 */
-            for ()
-                    Files.write(Path.of(""), "21321,213,123,123".getBytes());
         } catch (Exception ex) {
             System.out.println("Error");
         }
-
+    }
+    public static void removeFunko(){
+        System.out.print("Introduce el codigo del funko que quieres eliminar: ");
+        String codigo = scanner.nextLine();
+        for (Funko funko : funkos){
+            if (funko.getCodigo().equals(codigo)){
+                funkos.remove(funko);
+            }
+        }
+        saveFunkos(funkos);
+    }
+    public static void mostrarTodosFunkos() {
+        for (Funko funko : funkos) {
+            System.out.println(funko);
+        }
+    }
+    public static void mostrarMediaFunkos() {
+        double media = 0;
+        int contador = 0;
+        for (Funko funko : funkos) {
+            media += funko.getPrecio();
+            contador++;
+        }
+        System.out.println("El precio medio de los funkos es: " + media / contador);
+    }
+    public static void mostrarModelosFunkos(){
+        List<Funko> funkos1 = funkos;
+        List<Funko> funkosPorModelo = new ArrayList<>();
+        int contador = 0;
+        while(!funkos1.isEmpty()){
+            if (funkos1.get(contador).getModelo().equals(funkos1.get(contador + 1).getModelo())){
+                funkosPorModelo.add(funkos1.get(contador));
+                contador++;
+            }else if (funkos1.get(contador).getModelo().equals(funkos1.get(contador + 2).getModelo())){
+                funkosPorModelo.add(funkos1.get(contador));
+                contador++;
+            }
+        }
+        for (Funko funko : funkosPorModelo){
+            System.out.println(funko);
+        }
+    }
+    public static void mostrarFunkosFecha(){
 
     }
 }

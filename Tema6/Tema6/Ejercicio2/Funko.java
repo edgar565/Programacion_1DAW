@@ -1,5 +1,6 @@
 package Tema6.Ejercicio2;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Funko {
@@ -15,6 +16,28 @@ public class Funko {
         this.modelo = modelo;
         this.precio = precio;
         this.fechaLanzamiento = fechaLanzamiento;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public Date getFechaLanzamiento() {
+        return fechaLanzamiento;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return "Funko [id=" + codigo + ", nombre=" + nombre + ", modelo=" + modelo + ", precio=" + precio + ", fechaLanzamiento=" + dateFormat.format(fechaLanzamiento) + "]";
     }
 
 }
