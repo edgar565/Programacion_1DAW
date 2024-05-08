@@ -1,6 +1,6 @@
 package Tema6.Ejercicio2;
 
-import Tema4.Polimorfismo.EJ1.Date;
+import java.util.Date;
 
 public class Funko {
     String codigo;
@@ -16,4 +16,5 @@ public class Funko {
         this.precio = precio;
         this.fechaLanzamiento = fechaLanzamiento;
     }
+
 }
