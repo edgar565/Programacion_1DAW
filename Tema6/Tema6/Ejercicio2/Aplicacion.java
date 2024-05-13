@@ -1,12 +1,12 @@
 package Tema6.Ejercicio2;
 
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.*;
 import java.text.SimpleDateFormat;
-
 
 public class Aplicacion {
     static List<String> datosFunkos;
@@ -14,12 +14,6 @@ public class Aplicacion {
     static Path path = Path.of("/home/edgsannic/Descargas/funkos.csv");
     static Scanner scanner = new Scanner(System.in);
     static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-
-
-
-    public Aplicacion() throws IOException {
-    }
     public static void main(String[] args) {
         loadFunkos();
         menu();
@@ -50,7 +44,7 @@ public class Aplicacion {
                 mostrarModelosFunkos();
                 break;
             case 6:
-
+                mostrarFunkosFecha();
                 break;
         }
     }
@@ -96,22 +90,19 @@ public class Aplicacion {
         }
         return List.of();
     }
-
     public static void saveFunkos(List<Funko> funkos){
         try {
+            try {
+                RandomAccessFile archivo = new RandomAccessFile(path.toFile(), "rw");
+                archivo.setLength(0);
+                archivo.close();
+                System.out.println("Contenido del archivo borrado correctamente.");
+            } catch (IOException e) {
+                System.out.println("Error al borrar el contenido del archivo: " + e.getMessage());
+            }
             for (Funko funko : funkos){
                 Files.write(Path.of(path.toUri()), funko.toString().getBytes());
-
             }
-            /*
-                Borrar contenido fichero
-                for
-
-                for de la lista de funkos
-                    funko -> Strings
-
-                    Convertir funko -> Cadena
-                */
         } catch (Exception ex) {
             System.out.println("Error");
         }
@@ -158,6 +149,13 @@ public class Aplicacion {
         }
     }
     public static void mostrarFunkosFecha(){
-
+        System.out.print("Introduce el año para buscar los funkos: ");
+        String year = scanner.next();
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+        for (Funko funko : funkos) {
+            if (yearFormat.format(funko.getFechaLanzamiento()).equals(String.valueOf(year))) {
+                System.out.println(funko);
+            }
+        }
     }
 }
