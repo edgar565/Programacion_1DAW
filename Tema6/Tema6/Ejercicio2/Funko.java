@@ -18,6 +18,10 @@ public class Funko {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public String getCodigo() {
         return codigo;
     }

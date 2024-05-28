@@ -22,7 +22,9 @@ public class NidoSerpientes {
             System.out.println("Segundo " + segundo + ":");
             nacerSerpientesAleatoriamente();
             vivirSerpientes();
-            if (segundo % 10 == 0) ataqueDeMangosta();
+            if (segundo % 10 == 0) {
+                ataqueDeMangosta();
+            }
             mostrarEstado();
             try {
                 Thread.sleep(1000);

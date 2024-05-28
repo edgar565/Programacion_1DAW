@@ -9,8 +9,8 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Aplicacion {
-    static List<String> datosFunkos;
-    static List<Funko> funkos;
+    //static List<String> datosFunkos = new ArrayList<>();
+    static List<Funko> funkos = new ArrayList<>();
     static Path path = Path.of("/home/edgsannic/Descargas/funkos.csv");
     static Scanner scanner = new Scanner(System.in);
     static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -70,26 +70,32 @@ public class Aplicacion {
         saveFunkos(funkos);
     }
     public static List<Funko> loadFunkos(){
-        List<String> datosCSV;
+        List<String> datosCSV = new ArrayList<>() ;
         try {
             datosCSV = Files.readAllLines(path);
             for (int i = 1; i < datosCSV.size(); i++){
-                datosFunkos.add(Arrays.toString(datosCSV.get(i).split(",")));
-                double precio = Double.parseDouble(datosFunkos.get(3));
+                String[] datosFunkos = new String[0];
+                clearArray(datosFunkos);
+                datosFunkos = datosCSV.get(i).split(",");
+                double precio = Double.parseDouble(datosFunkos[3]);
+                String fechaStr = Arrays.toString(datosFunkos[4].split("-"));
                 Date fecha = new Date();
                 try {
-                    fecha = dateFormat.parse(datosFunkos.get(4));
+                    fecha = dateFormat.parse(fechaStr);
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
-                funkos.add(new Funko(datosFunkos.get(0), datosFunkos.get(1), datosFunkos.get(2), precio, fecha));
-                datosFunkos.clear();
+                funkos.add(new Funko(datosFunkos[0], datosFunkos[1], datosFunkos[2], precio, fecha));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return List.of();
     }
+    public static String[] clearArray(String[] array) {
+        return new String[array.length];
+    }
+
     public static void saveFunkos(List<Funko> funkos){
         try {
             try {
@@ -101,11 +107,21 @@ public class Aplicacion {
                 System.out.println("Error al borrar el contenido del archivo: " + e.getMessage());
             }
             for (Funko funko : funkos){
-                Files.write(Path.of(path.toUri()), funko.toString().getBytes());
+                 // Files.write(Path.of(path.toUri()), funko.toString().getBytes());
+                int i = 0;
+                if (i == 0){
+                    Files.writeString(Path.of(path.toUri()), "COD,NOMBRE,MODELO,PRECIO,FECHA_LANZAMIENTO");
+                }
+                String funko1 = guardarFunko(funko);
+                Files.writeString(Path.of(path.toUri()), funko1);
+                i++;
             }
         } catch (Exception ex) {
             System.out.println("Error");
         }
+    }
+    public static String guardarFunko(Funko funko){
+        return funko.getCodigo() + "," + funko.nombre + "," + funko.getModelo() + "," + funko.getPrecio() + "," + funko.getFechaLanzamiento();
     }
     public static void removeFunko(){
         System.out.print("Introduce el codigo del funko que quieres eliminar: ");
@@ -151,11 +167,14 @@ public class Aplicacion {
     public static void mostrarFunkosFecha(){
         System.out.print("Introduce el año para buscar los funkos: ");
         String year = scanner.next();
-        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
         for (Funko funko : funkos) {
-            if (yearFormat.format(funko.getFechaLanzamiento()).equals(String.valueOf(year))) {
+            int i = 0;
+            String[] fecha = String.valueOf(funko.getFechaLanzamiento()).split("-");
+            if (fecha[i].equals(year)){
                 System.out.println(funko);
+                break;
             }
+            i = i + 3;
         }
     }
 }
